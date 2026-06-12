@@ -50,7 +50,7 @@
   .hero-glow-1 { position: absolute; right: -100px; top: -100px; width: 580px; height: 580px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.07) 0%, transparent 70%); pointer-events: none; }
   .hero-glow-2 { position: absolute; left: -80px; bottom: -80px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
   .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1rem; }
-  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; color: var(--cream); margin-bottom: 0.4rem; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 0.4rem; white-space: nowrap; }
   h1 em { font-style: italic; color: var(--gold-light); }
   .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; font-style: italic; color: var(--text-muted); margin-bottom: 2rem; display: block; }
   .hero-bio { font-size: 0.93rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2rem; max-width: 480px; }
@@ -181,6 +181,38 @@
   footer a { color: var(--text-muted); text-decoration: none; }
   footer a:hover { color: var(--teal-light); }
 
+  /* CAREER PROGRESSION LADDER */
+  .progression { display: flex; flex-direction: column; gap: 0; margin: 1.2rem 0 1.6rem; position: relative; padding-left: 1.6rem; }
+  .progression::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--teal), var(--gold)); border-radius: 2px; opacity: 0.4; }
+  .prog-step { display: flex; align-items: flex-start; gap: 0.9rem; padding: 0.65rem 0; position: relative; }
+  .prog-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 0.18rem; position: absolute; left: -1.6rem; border: 2px solid; }
+  .prog-dot.past { background: transparent; border-color: var(--teal); opacity: 0.55; }
+  .prog-dot.current { background: var(--gold); border-color: var(--gold-light); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+  .prog-body { flex: 1; }
+  .prog-title { font-size: 0.88rem; font-weight: 500; color: var(--cream); line-height: 1.3; }
+  .prog-title.current-role { color: var(--gold-light); }
+  .prog-meta { display: flex; gap: 0.8rem; margin-top: 0.2rem; flex-wrap: wrap; }
+  .prog-period { font-size: 0.72rem; color: var(--teal-light); }
+  .prog-badge { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 3px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); }
+
+  /* EXPERIENCE ILLUSTRATIONS */
+  .tl-illustration { width: 100%; height: 110px; border-radius: 8px; margin-bottom: 1.2rem; overflow: hidden; background: rgba(255,255,255,0.02); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .tl-illustration svg { width: 100%; height: 100%; }
+
+  /* PUBLICATION PROFILE BANNER */
+  .pub-profile-banner { display: flex; align-items: center; gap: 1rem; background: rgba(29,158,117,0.05); border: 1px solid rgba(29,158,117,0.2); border-radius: 10px; padding: 1rem 1.4rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .pub-profile-banner p { font-size: 0.82rem; color: var(--text-muted); flex: 1; min-width: 180px; }
+  .pub-profile-banner p strong { color: var(--teal-light); }
+  .pub-profile-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .pub-prof-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; border-radius: 5px; font-size: 0.75rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s; }
+  .pub-prof-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .pub-prof-link.scholar { border-color: rgba(201,168,76,0.35); color: var(--gold-light); }
+  .pub-prof-link.scholar:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.6); }
+  .pub-prof-link.rg { border-color: rgba(29,158,117,0.35); color: var(--teal-light); }
+  .pub-prof-link.rg:hover { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.6); }
+  .pub-prof-link.orcid { border-color: rgba(166,206,57,0.35); color: #a6ce39; }
+  .pub-prof-link.orcid:hover { background: rgba(166,206,57,0.06); border-color: rgba(166,206,57,0.6); }
+
   /* ANIMATIONS */
   .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -238,8 +270,8 @@
   <div class="hero-grid">
 
     <div class="fade-up">
-      <p class="eyebrow">Principal Statistician · PhD</p>
-      <h1>Alemu<br><em>Takele</em><br>Assefa</h1>
+      <p class="eyebrow">Senior Principal Scientist in Biostatistics · PhD</p>
+      <h1>Alemu Takele, <em>Assefa</em></h1>
       <span class="hero-subtitle">Biostatistics &amp; Computational Biology</span>
       <p class="hero-bio">Seasoned statistician specialising in single-cell transcriptomics, cancer immunotherapy drug discovery, and AI-assisted target identification. Based in Turnhout, Belgium.</p>
       <div class="hero-cta">
@@ -278,11 +310,11 @@
     <div class="profile-card fade-up" style="transition-delay:0.2s;">
       <div class="profile-avatar">ATA</div>
       <p class="profile-name">Alemu Takele Assefa, PhD</p>
-      <p class="profile-role">Principal Statistician · Johnson &amp; Johnson Innovative Medicine<br>Beerse, Belgium</p>
+      <p class="profile-role">Senior Principal Scientist in Biostatistics<br>Johnson &amp; Johnson Innovative Medicine · Beerse, Belgium</p>
       <div class="stat-row">
         <div class="stat"><div class="stat-num">321+</div><div class="stat-lbl">Citations</div></div>
         <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Publications</div></div>
-        <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Yrs Industry</div></div>
+        <div class="stat"><div class="stat-num">6+</div><div class="stat-lbl">Yrs Industry</div></div>
       </div>
       <p style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.5rem;letter-spacing:0.08em;">ORCID</p>
       <a href="https://orcid.org/0000-0002-7773-0621" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--teal-light);text-decoration:none;">0000-0002-7773-0621</a>
@@ -301,17 +333,20 @@
   <div class="about-grid fade-up">
     <div class="about-text">
       <p>I am a seasoned statistician with a robust background in biostatistics and data analysis, bringing a wealth of experience from roles in the pharmaceutical industry and academic institutions.</p>
-      <p>My work has focused on developing innovative tools and methodologies that assist the drug discovery pipeline for cancer immunotherapy — including optimizing target identification using single-cell transcriptomic data for bi-specific antibody design, and developing predictive biomarker discovery frameworks.</p>
-      <p>I have successfully integrated AI for assisting data-driven target identification and developed a database for the translation of pre-clinical findings to inform dose escalation and safety measures in clinical trials. I develop and deploy Shiny applications and dashboards to automate data analysis and share interactive reports.</p>
+      <p>My work has focused on developing innovative tools and methodologies that assist the drug discovery pipeline for cancer immunotherapy. I work across a broad spectrum of high-dimensional biological data modalities — including <strong style="color:var(--cream)">bulk and single-cell transcriptomics</strong>, <strong style="color:var(--cream)">spatial transcriptomics</strong>, <strong style="color:var(--cream)">proteomics</strong>, <strong style="color:var(--cream)">flow cytometry</strong>, <strong style="color:var(--cream)">CyTOF</strong>, and <strong style="color:var(--cream)">cell phenotype imaging (Cell Painting)</strong> — to extract biologically meaningful signals and support target identification and biomarker discovery.</p>
+      <p>I have successfully integrated AI for data-driven target identification and developed a database translating pre-clinical findings to inform dose escalation and safety in clinical trials. I develop and deploy R Shiny applications and dashboards to automate data analysis and share interactive reports with scientific teams.</p>
     </div>
     <div>
       <p class="section-label" style="margin-bottom:1.1rem;">Core Domains</p>
       <div class="domain-list">
-        <div class="domain-item">Single-cell RNA-seq &amp; bulk transcriptomics</div>
+        <div class="domain-item">Bulk &amp; single-cell transcriptomics (RNA-seq, scRNA-seq)</div>
+        <div class="domain-item">Spatial transcriptomics</div>
+        <div class="domain-item">Proteomics</div>
+        <div class="domain-item">Cell phenotype imaging — Cell Painting</div>
+        <div class="domain-item">Flow cytometry &amp; CyTOF</div>
         <div class="domain-item">Statistical method development</div>
         <div class="domain-item">Cancer immunotherapy &amp; drug discovery</div>
         <div class="domain-item">Dose–response &amp; biomarker analysis</div>
-        <div class="domain-item">Flow cytometry &amp; high-content imaging</div>
         <div class="domain-item">AI / LLM-assisted target identification</div>
         <div class="domain-item">R Shiny development &amp; data visualization</div>
         <div class="domain-item">Clinical trial &amp; pre-clinical translation</div>
@@ -333,8 +368,108 @@
         <div class="tl-org">Johnson &amp; Johnson</div>
       </div>
       <div>
-        <h3 class="tl-title">Principal Statistician</h3>
-        <p class="tl-company">Johnson &amp; Johnson Innovative Medicine</p>
+        <!-- J&J Illustration: pharmaceutical / single-cell / AI theme -->
+        <div class="tl-illustration">
+          <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gJJ" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#1d9e75" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="560" height="110" fill="url(#gJJ)"/>
+            <!-- DNA double helix left -->
+            <g opacity="0.55">
+              <path d="M40 10 Q55 30 40 50 Q25 70 40 90 Q55 110 40 130" stroke="#1d9e75" stroke-width="1.5" fill="none"/>
+              <path d="M60 10 Q45 30 60 50 Q75 70 60 90 Q45 110 60 130" stroke="#5dcaa5" stroke-width="1.5" fill="none"/>
+              <line x1="40" y1="22" x2="60" y2="22" stroke="#5dcaa5" stroke-width="1" opacity="0.7"/>
+              <line x1="40" y1="38" x2="60" y2="38" stroke="#5dcaa5" stroke-width="1" opacity="0.7"/>
+              <line x1="40" y1="55" x2="60" y2="55" stroke="#5dcaa5" stroke-width="1" opacity="0.7"/>
+              <line x1="40" y1="72" x2="60" y2="72" stroke="#5dcaa5" stroke-width="1" opacity="0.7"/>
+              <line x1="40" y1="88" x2="60" y2="88" stroke="#5dcaa5" stroke-width="1" opacity="0.7"/>
+            </g>
+            <!-- Molecule center -->
+            <g transform="translate(150,55)" opacity="0.7">
+              <circle cx="0" cy="0" r="10" fill="none" stroke="#1d9e75" stroke-width="1.5"/>
+              <circle cx="0" cy="0" r="3" fill="#1d9e75"/>
+              <line x1="10" y1="0" x2="28" y2="-14" stroke="#5dcaa5" stroke-width="1.2"/>
+              <line x1="10" y1="0" x2="28" y2="14" stroke="#5dcaa5" stroke-width="1.2"/>
+              <line x1="-10" y1="0" x2="-28" y2="-14" stroke="#5dcaa5" stroke-width="1.2"/>
+              <line x1="-10" y1="0" x2="-28" y2="14" stroke="#5dcaa5" stroke-width="1.2"/>
+              <line x1="0" y1="-10" x2="0" y2="-28" stroke="#5dcaa5" stroke-width="1.2"/>
+              <circle cx="30" cy="-16" r="6" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="30" cy="16" r="6" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="-30" cy="-16" r="6" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="-30" cy="16" r="6" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="0" cy="-30" r="6" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+            </g>
+            <!-- Bar chart right -->
+            <g transform="translate(300,15)" opacity="0.65">
+              <text x="0" y="10" font-size="8" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">EXPRESSION LEVELS</text>
+              <rect x="0" y="18" width="14" height="65" rx="2" fill="#1d9e75" opacity="0.5"/>
+              <rect x="20" y="30" width="14" height="53" rx="2" fill="#1d9e75" opacity="0.6"/>
+              <rect x="40" y="22" width="14" height="61" rx="2" fill="#5dcaa5" opacity="0.5"/>
+              <rect x="60" y="42" width="14" height="41" rx="2" fill="#1d9e75" opacity="0.4"/>
+              <rect x="80" y="15" width="14" height="68" rx="2" fill="#5dcaa5" opacity="0.65"/>
+              <rect x="100" y="35" width="14" height="48" rx="2" fill="#1d9e75" opacity="0.5"/>
+              <rect x="120" y="48" width="14" height="35" rx="2" fill="#c9a84c" opacity="0.5"/>
+              <rect x="140" y="25" width="14" height="58" rx="2" fill="#5dcaa5" opacity="0.55"/>
+              <line x1="0" y1="83" x2="157" y2="83" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+            </g>
+            <!-- AI / LLM nodes far right -->
+            <g transform="translate(470,55)" opacity="0.55">
+              <circle cx="0" cy="0" r="14" fill="none" stroke="#c9a84c" stroke-width="1.2" stroke-dasharray="3 2"/>
+              <circle cx="0" cy="0" r="4" fill="#c9a84c" opacity="0.7"/>
+              <circle cx="0" cy="-26" r="5" fill="none" stroke="#e4c97e" stroke-width="1"/>
+              <circle cx="22" cy="13" r="5" fill="none" stroke="#e4c97e" stroke-width="1"/>
+              <circle cx="-22" cy="13" r="5" fill="none" stroke="#e4c97e" stroke-width="1"/>
+              <line x1="0" y1="-14" x2="0" y2="-21" stroke="#e4c97e" stroke-width="1"/>
+              <line x1="12" y1="7" x2="18" y2="10" stroke="#e4c97e" stroke-width="1"/>
+              <line x1="-12" y1="7" x2="-18" y2="10" stroke="#e4c97e" stroke-width="1"/>
+              <text x="-18" y="-34" font-size="7" fill="#e4c97e" font-family="Inter,sans-serif" opacity="0.8">AI</text>
+            </g>
+            <!-- label -->
+            <text x="28" y="104" font-size="7.5" fill="#1d9e75" font-family="Inter,sans-serif" letter-spacing="1.5" opacity="0.8">JOHNSON &amp; JOHNSON INNOVATIVE MEDICINE</text>
+          </svg>
+        </div>
+        <h3 class="tl-title">Senior Principal Scientist in Biostatistics</h3>
+        <p class="tl-company">Johnson &amp; Johnson Innovative Medicine · Beerse, Belgium</p>
+
+        <!-- Career Progression Ladder -->
+        <div class="progression">
+          <div class="prog-step">
+            <div class="prog-dot past"></div>
+            <div class="prog-body">
+              <div class="prog-title">Senior Scientist in Biostatistics</div>
+              <div class="prog-meta"><span class="prog-period">Dec 2019 — Dec 2022</span></div>
+            </div>
+          </div>
+          <div class="prog-step">
+            <div class="prog-dot past"></div>
+            <div class="prog-body">
+              <div class="prog-title">Principal Scientist in Biostatistics</div>
+              <div class="prog-meta"><span class="prog-period">Dec 2022 — Dec 2024</span></div>
+            </div>
+          </div>
+          <div class="prog-step">
+            <div class="prog-dot past"></div>
+            <div class="prog-body">
+              <div class="prog-title">Principal Scientist II in Biostatistics</div>
+              <div class="prog-meta"><span class="prog-period">Dec 2024 — Mar 2025</span></div>
+            </div>
+          </div>
+          <div class="prog-step">
+            <div class="prog-dot current"></div>
+            <div class="prog-body">
+              <div class="prog-title current-role">Senior Principal Scientist in Biostatistics</div>
+              <div class="prog-meta">
+                <span class="prog-period">Mar 2025 — Present</span>
+                <span class="prog-badge">Current</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <ul class="tl-bullets">
           <li>Integrated LLM-based AI to support target identification for immunotherapy antibody design in oncology.</li>
           <li>Developed a database integrating pre-clinical and clinical drug discovery data to assist translation of in-vitro and in-vivo findings for safety and efficacy prediction in clinical trials.</li>
@@ -354,6 +489,61 @@
         <div class="tl-loc">Gondar, Ethiopia</div>
       </div>
       <div>
+        <!-- Gondar illustration: public health / epidemiology theme -->
+        <div class="tl-illustration">
+          <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gGon" cx="30%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="560" height="110" fill="url(#gGon)"/>
+            <!-- Epidemic / survival curve left -->
+            <g transform="translate(30,15)" opacity="0.65">
+              <text x="0" y="9" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">SURVIVAL ANALYSIS</text>
+              <polyline points="0,75 25,72 50,62 75,48 100,38 125,30 150,26 175,22" stroke="#c9a84c" stroke-width="2" fill="none"/>
+              <polyline points="0,75 25,70 50,55 75,35 100,20 125,15 150,12 175,10" stroke="#e4c97e" stroke-width="1.2" fill="none" stroke-dasharray="4 3" opacity="0.6"/>
+              <line x1="0" y1="75" x2="180" y2="75" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+              <line x1="0" y1="10" x2="0" y2="75" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+            </g>
+            <!-- People / population icons center -->
+            <g transform="translate(260,30)" opacity="0.55">
+              <text x="-30" y="-12" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">POPULATION HEALTH</text>
+              <!-- row of person silhouettes -->
+              <g fill="#1d9e75">
+                <circle cx="0" cy="0" r="5"/><rect x="-4" y="7" width="8" height="14" rx="2"/>
+              </g>
+              <g fill="#1d9e75" opacity="0.8">
+                <circle cx="22" cy="0" r="5"/><rect x="18" y="7" width="8" height="14" rx="2"/>
+              </g>
+              <g fill="#5dcaa5" opacity="0.7">
+                <circle cx="44" cy="0" r="5"/><rect x="40" y="7" width="8" height="14" rx="2"/>
+              </g>
+              <g fill="#c9a84c" opacity="0.6">
+                <circle cx="66" cy="0" r="5"/><rect x="62" y="7" width="8" height="14" rx="2"/>
+              </g>
+              <g fill="#1d9e75" opacity="0.5">
+                <circle cx="88" cy="0" r="5"/><rect x="84" y="7" width="8" height="14" rx="2"/>
+              </g>
+            </g>
+            <!-- Scatter / regression right -->
+            <g transform="translate(410,18)" opacity="0.6">
+              <text x="0" y="8" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">BIOSTATISTICS</text>
+              <circle cx="10" cy="65" r="2.5" fill="#5dcaa5"/>
+              <circle cx="22" cy="55" r="2.5" fill="#5dcaa5"/>
+              <circle cx="35" cy="48" r="2.5" fill="#5dcaa5"/>
+              <circle cx="48" cy="40" r="2.5" fill="#c9a84c"/>
+              <circle cx="60" cy="33" r="2.5" fill="#5dcaa5"/>
+              <circle cx="73" cy="25" r="2.5" fill="#5dcaa5"/>
+              <circle cx="85" cy="20" r="2.5" fill="#c9a84c"/>
+              <line x1="5" y1="70" x2="90" y2="15" stroke="#e4c97e" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+              <line x1="0" y1="72" x2="95" y2="72" stroke="#9babb8" stroke-width="0.5" opacity="0.35"/>
+              <line x1="0" y1="15" x2="0" y2="72" stroke="#9babb8" stroke-width="0.5" opacity="0.35"/>
+            </g>
+            <text x="28" y="104" font-size="7.5" fill="#c9a84c" font-family="Inter,sans-serif" letter-spacing="1.5" opacity="0.8">UNIVERSITY OF GONDAR · INSTITUTE OF PUBLIC HEALTH</text>
+          </svg>
+        </div>
         <h3 class="tl-title">Lecturer in Biostatistics</h3>
         <p class="tl-company">Institute of Public Health and Epidemiology, University of Gondar</p>
       </div>
@@ -365,6 +555,46 @@
         <div class="tl-loc">Aksum, Ethiopia</div>
       </div>
       <div>
+        <!-- Aksum illustration: teaching / mathematics / statistics theme -->
+        <div class="tl-illustration">
+          <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gAku" cx="70%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#5dcaa5" stop-opacity="0.07"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="560" height="110" fill="url(#gAku)"/>
+            <!-- Chalkboard / formulae left -->
+            <g transform="translate(25,12)" opacity="0.6">
+              <rect x="0" y="0" width="170" height="82" rx="4" fill="none" stroke="#5dcaa5" stroke-width="1" opacity="0.4"/>
+              <text x="8" y="18" font-size="9" fill="#5dcaa5" font-family="Inter,sans-serif" opacity="0.85">ŷ = β₀ + β₁x₁ + ε</text>
+              <text x="8" y="34" font-size="8.5" fill="#e4c97e" font-family="Inter,sans-serif" opacity="0.7">H₀: μ₁ = μ₂  vs  H₁: μ₁ ≠ μ₂</text>
+              <text x="8" y="50" font-size="8" fill="#9babb8" font-family="Inter,sans-serif" opacity="0.65">P(A|B) = P(B|A)·P(A) / P(B)</text>
+              <text x="8" y="65" font-size="8" fill="#5dcaa5" font-family="Inter,sans-serif" opacity="0.6">∑ xᵢ / n = x̄</text>
+              <text x="8" y="78" font-size="7.5" fill="#c9a84c" font-family="Inter,sans-serif" opacity="0.6">σ² = E[(X - μ)²]</text>
+            </g>
+            <!-- Graduation / academic cap -->
+            <g transform="translate(265,42)" opacity="0.55">
+              <!-- cap -->
+              <polygon points="0,-20 30,-8 0,4 -30,-8" fill="none" stroke="#e4c97e" stroke-width="1.4"/>
+              <rect x="-7" y="4" width="14" height="16" rx="1" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+              <line x1="30" y1="-8" x2="30" y2="8" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="30" cy="10" r="3" fill="#c9a84c" opacity="0.7"/>
+              <text x="-24" y="38" font-size="7.5" fill="#e4c97e" font-family="Inter,sans-serif" opacity="0.7" letter-spacing="0.5">AKSUM UNIVERSITY</text>
+            </g>
+            <!-- Normal distribution curve right -->
+            <g transform="translate(380,15)" opacity="0.6">
+              <text x="10" y="8" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">PROBABILITY</text>
+              <path d="M0,72 C10,72 20,70 30,60 C40,48 45,25 55,18 C65,12 70,12 80,18 C90,25 95,48 105,60 C115,70 125,72 135,72" stroke="#5dcaa5" stroke-width="2" fill="none"/>
+              <path d="M0,72 C10,72 20,70 30,60 C40,48 45,25 55,18 C65,12 70,12 80,18 C90,25 95,48 105,60 C115,70 125,72 135,72 L135,72 L0,72 Z" fill="#5dcaa5" opacity="0.07"/>
+              <line x1="68" y1="18" x2="68" y2="72" stroke="#e4c97e" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+              <line x1="0" y1="72" x2="138" y2="72" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+              <text x="57" y="82" font-size="7" fill="#e4c97e" font-family="Inter,sans-serif" opacity="0.6">μ</text>
+            </g>
+            <text x="28" y="104" font-size="7.5" fill="#5dcaa5" font-family="Inter,sans-serif" letter-spacing="1.5" opacity="0.8">AKSUM UNIVERSITY · FACULTY OF COMPUTATIONAL SCIENCE</text>
+          </svg>
+        </div>
         <h3 class="tl-title">Assistant Lecturer in Statistics &amp; Mathematics</h3>
         <p class="tl-company">Faculty of Computational Science, Aksum University</p>
       </div>
@@ -377,6 +607,23 @@
 <!-- PUBLICATIONS -->
 <div class="section-wrap" id="publications">
   <div class="fade-up"><p class="section-label">Research Output</p><h2>Selected <span>Publications</span></h2></div>
+  <div class="pub-profile-banner fade-up">
+    <p><strong>View my complete publication record</strong> including citation metrics, co-author networks, and full-text links on my academic profiles.</p>
+    <div class="pub-profile-links">
+      <a href="https://scholar.google.com/citations?user=g3t1XR0AAAAJ" target="_blank" class="pub-prof-link scholar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://www.researchgate.net/profile/Alemu-Assefa" target="_blank" class="pub-prof-link rg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a12.41 12.41 0 0 0-.35 3.063h-1.49v2.498h1.49v7.752h3.495v-7.752h2.325l.219-2.498h-2.544V5.38c0-.578.116-.977.347-1.186.23-.21.65-.316 1.258-.316h.963V0zM2.762 0l-.547.063A5.055 5.055 0 0 0 0 1.08L0 2.7h1.42c.547 0 .964.142 1.25.424.284.284.426.697.426 1.24V5.38H.873v2.498H3.1v7.752h3.522V7.878h3.003V5.38H6.621V4.48c0-1.452-.357-2.53-1.071-3.233-.715-.702-1.73-1.073-3.045-1.073l-.743-.174z"/></svg>
+        ResearchGate
+      </a>
+      <a href="https://orcid.org/0000-0002-7773-0621" target="_blank" class="pub-prof-link orcid">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.409 3.872-3.722 0-2.016-1.284-3.722-3.863-3.722h-2.306z"/></svg>
+        ORCID
+      </a>
+    </div>
+  </div>
   <div class="pub-grid">
 
     <div class="pub-card fade-up">
@@ -431,10 +678,6 @@
     </div>
 
   </div>
-  <div style="margin-top:2rem;display:flex;gap:0.75rem;flex-wrap:wrap;" class="fade-up">
-    <a href="https://scholar.google.com/citations?user=g3t1XR0AAAAJ" target="_blank" class="btn btn-outline">Full list on Google Scholar</a>
-    <a href="https://www.researchgate.net/profile/Alemu-Assefa" target="_blank" class="btn btn-outline">View on ResearchGate</a>
-  </div>
 </div>
 <hr class="section-divider">
 
@@ -479,12 +722,26 @@
       </div>
     </div>
     <div class="skill-group fade-up">
+      <p class="skill-group-label">Data Modalities</p>
+      <div class="skill-tags">
+        <span class="skill-tag hi">Bulk RNA-seq</span>
+        <span class="skill-tag hi">scRNA-seq</span>
+        <span class="skill-tag hi">Spatial transcriptomics</span>
+        <span class="skill-tag hi">Proteomics</span>
+        <span class="skill-tag hi">Flow cytometry</span>
+        <span class="skill-tag hi">CyTOF</span>
+        <span class="skill-tag hi">Cell Painting</span>
+      </div>
+    </div>
+    <div class="skill-group fade-up">
       <p class="skill-group-label">Statistical Methods</p>
       <div class="skill-tags">
-        <span class="skill-tag hi">scRNA-seq analysis</span>
-        <span class="skill-tag">DGE analysis</span><span class="skill-tag">Mixed-effect models</span>
-        <span class="skill-tag">Compositional DA</span><span class="skill-tag">Dose–response modelling</span>
+        <span class="skill-tag">DGE analysis</span>
+        <span class="skill-tag">Mixed-effect models</span>
+        <span class="skill-tag">Compositional DA</span>
+        <span class="skill-tag">Dose–response modelling</span>
         <span class="skill-tag">Biomarker discovery</span>
+        <span class="skill-tag">Dimensionality reduction</span>
       </div>
     </div>
     <div class="skill-group fade-up">
