@@ -216,6 +216,57 @@
   .pub-prof-link.orcid { border-color: rgba(166,206,57,0.35); color: #a6ce39; }
   .pub-prof-link.orcid:hover { background: rgba(166,206,57,0.06); border-color: rgba(166,206,57,0.6); }
 
+  /* GITHUB PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.6rem; transition: border-color 0.2s, background 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 0.6rem; }
+  .project-card:hover { border-color: rgba(29,158,117,0.35); background: rgba(29,158,117,0.03); transform: translateY(-2px); }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+  .project-name { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 500; color: var(--teal-light); text-decoration: none; line-height: 1.3; }
+  .project-name:hover { color: var(--cream); }
+  .project-lang { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 3px; border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); white-space: nowrap; flex-shrink: 0; background: rgba(201,168,76,0.06); }
+  .project-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; flex: 1; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; }
+  .project-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.73rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .project-link svg { width: 11px; height: 11px; }
+  .project-link:hover { color: var(--teal-light); }
+  .project-stars { display: flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: var(--text-muted); }
+  .project-stars svg { width: 12px; height: 12px; color: var(--gold); }
+  .github-cta { display: flex; justify-content: center; margin-top: 2rem; }
+
+  /* SPOTLIGHT */
+  .spotlight-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .spotlight-section { background: linear-gradient(135deg, rgba(29,158,117,0.07) 0%, rgba(13,27,42,0) 60%), var(--card-bg); border: 1px solid rgba(29,158,117,0.25); border-radius: 16px; padding: 3rem 3.5rem; position: relative; overflow: hidden; }
+  .spotlight-section::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.09) 0%, transparent 70%); pointer-events: none; }
+  .spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; position: relative; }
+  .spotlight-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-light); background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.3); border-radius: 20px; padding: 0.3rem 0.8rem; margin-bottom: 1rem; }
+  .spotlight-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 6px var(--teal); animation: pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.3); } }
+  .spotlight-conf-tag { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.72rem; color: var(--gold-light); background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; padding: 0.28rem 0.7rem; margin-bottom: 1.2rem; }
+  .spotlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500; color: var(--cream); line-height: 1.25; margin-bottom: 1rem; }
+  .spotlight-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .spotlight-pillars { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+  .sp-pillar { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .sp-pillar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 0.42rem; }
+  .sp-pillar-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+  .sp-pillar-text strong { color: var(--cream); }
+  .spotlight-poster-btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.65rem 1.4rem; border-radius: 5px; font-size: 0.8rem; font-weight: 500; text-decoration: none; background: rgba(29,158,117,0.12); border: 1px solid rgba(29,158,117,0.4); color: var(--teal-light); transition: all 0.2s; }
+  .spotlight-poster-btn:hover { background: rgba(29,158,117,0.2); border-color: var(--teal); color: #fff; }
+  .spotlight-vis { display: flex; flex-direction: column; gap: 1.1rem; }
+  .sp-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .sp-metric { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+  .sp-metric-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--teal-light); line-height: 1; }
+  .sp-metric-lbl { font-size: 0.67rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4; }
+  .sp-svg-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .sp-flow { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; margin-top: 0.5rem; }
+  .sp-flow-step { flex: 1; text-align: center; padding: 0.7rem 0.4rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; font-size: 0.67rem; color: var(--text-muted); line-height: 1.5; }
+  .sp-flow-step strong { display: block; font-size: 0.75rem; color: var(--teal-light); margin-bottom: 0.2rem; }
+  .sp-flow-arrow { font-size: 0.7rem; color: var(--text-muted); padding: 0 0.25rem; flex-shrink: 0; opacity: 0.5; }
+  @media (max-width: 860px) {
+    .spotlight-wrap { padding: 4rem 1.5rem; }
+    .spotlight-section { padding: 2rem 1.5rem; }
+    .spotlight-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
   /* ANIMATIONS */
   .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -243,12 +294,14 @@
 <nav>
   <a href="#hero" class="nav-logo">ATA</a>
   <ul class="nav-links">
+    <li><a href="#spotlight">Research</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#hobbies">Hobbies</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-social">
@@ -327,6 +380,142 @@
   </div>
 </section>
 <hr class="section-divider">
+
+<hr class="section-divider">
+
+<!-- SPOTLIGHT: CURRENT RESEARCH FOCUS -->
+<div class="spotlight-wrap" id="spotlight">
+  <div class="spotlight-section fade-up">
+    <div class="spotlight-inner">
+      <div>
+        <div class="spotlight-badge">Current Research Focus</div>
+        <div class="spotlight-conf-tag">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Presented at EuroBioc2026 · June 3–5, 2026 · Turku, Finland
+        </div>
+        <h3 class="spotlight-title">Spatial Transcriptomics for Tumor Microenvironment Characterisation &amp; Drug Target Prioritisation</h3>
+        <p class="spotlight-desc">My current primary focus is developing statistical frameworks that leverage spatial transcriptomics (ST) to navigate the tumor microenvironment (TME) and identify robust, immune-accessible drug targets for cancer immunotherapy. ST preserves tissue architecture and spatial context — crucial for understanding cellular heterogeneity and immune cell–tumor interactions that are invisible to bulk or single-cell sequencing alone.</p>
+        <div class="spotlight-pillars">
+          <div class="sp-pillar">
+            <div class="sp-pillar-dot"></div>
+            <div class="sp-pillar-text"><strong>Spatial target heterogeneity.</strong> Quantifying within- and between-donor variability of tumor target positivity across tissue islands using CV-based metrics, to prioritise spatially consistent, druggable candidates.</div>
+          </div>
+          <div class="sp-pillar">
+            <div class="sp-pillar-dot"></div>
+            <div class="sp-pillar-text"><strong>Immune cell infiltration (ICI) scoring.</strong> Proposing quantitative proximity-based scores — overall infiltration fraction, fraction of tumour cells with ≥ n immune neighbours, and mean immune neighbour count — to map tumour accessibility to immune effectors.</div>
+          </div>
+          <div class="sp-pillar">
+            <div class="sp-pillar-dot"></div>
+            <div class="sp-pillar-text"><strong>Multi-target integration.</strong> Combining spatial heterogeneity and ICI scores across tumour targets and immune cell types (CD8+ T cells, NK cells, macrophages) to rank targets by their therapeutic actionability.</div>
+          </div>
+        </div>
+        <a href="https://github.com/AlemuTA" target="_blank" class="spotlight-poster-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View Code on GitHub
+        </a>
+      </div>
+
+      <div class="spotlight-vis">
+        <div class="sp-metrics">
+          <div class="sp-metric">
+            <div class="sp-metric-val">~168K</div>
+            <div class="sp-metric-lbl">Cells retained after QC filtering</div>
+          </div>
+          <div class="sp-metric">
+            <div class="sp-metric-val">100</div>
+            <div class="sp-metric-lbl">Spatial islands per tissue sample (k-means)</div>
+          </div>
+          <div class="sp-metric">
+            <div class="sp-metric-val">CV<sub style="font-size:0.8em">W</sub> &amp; CV<sub style="font-size:0.8em">B</sub></div>
+            <div class="sp-metric-lbl">Within- &amp; between-donor variability metrics</div>
+          </div>
+          <div class="sp-metric">
+            <div class="sp-metric-val">4</div>
+            <div class="sp-metric-lbl">Immune cell subtypes profiled spatially</div>
+          </div>
+        </div>
+
+        <div class="sp-svg-card">
+          <svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+            <defs>
+              <radialGradient id="gST" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#1d9e75" stop-opacity="0.10"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="380" height="160" fill="#0d1b2a"/>
+            <rect width="380" height="160" fill="url(#gST)"/>
+            <text x="14" y="14" font-size="6.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">TUMOR ISLANDS</text>
+            <g opacity="0.75">
+              <rect x="12" y="20" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.55"/>
+              <rect x="34" y="20" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.30"/>
+              <rect x="56" y="20" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.55"/>
+              <rect x="78" y="20" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.40"/>
+              <rect x="100" y="20" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.65"/>
+              <rect x="12" y="42" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.40"/>
+              <rect x="34" y="42" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.35"/>
+              <rect x="56" y="42" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.70"/>
+              <rect x="78" y="42" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.25"/>
+              <rect x="100" y="42" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.45"/>
+              <rect x="12" y="64" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.50"/>
+              <rect x="34" y="64" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.60"/>
+              <rect x="56" y="64" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.35"/>
+              <rect x="78" y="64" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.60"/>
+              <rect x="100" y="64" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.50"/>
+              <rect x="12" y="86" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.65"/>
+              <rect x="34" y="86" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.45"/>
+              <rect x="56" y="86" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.30"/>
+              <rect x="78" y="86" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.55"/>
+              <rect x="100" y="86" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.70"/>
+              <rect x="12" y="108" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.40"/>
+              <rect x="34" y="108" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.50"/>
+              <rect x="56" y="108" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.60"/>
+              <rect x="78" y="108" width="20" height="20" rx="2" fill="#c9a84c" opacity="0.50"/>
+              <rect x="100" y="108" width="20" height="20" rx="2" fill="#1d9e75" opacity="0.35"/>
+            </g>
+            <rect x="12" y="136" width="10" height="7" rx="1" fill="#1d9e75" opacity="0.6"/>
+            <text x="26" y="143" font-size="6" fill="#9babb8" font-family="Inter,sans-serif">Target+</text>
+            <rect x="72" y="136" width="10" height="7" rx="1" fill="#c9a84c" opacity="0.5"/>
+            <text x="86" y="143" font-size="6" fill="#9babb8" font-family="Inter,sans-serif">Target−</text>
+            <line x1="142" y1="10" x2="142" y2="152" stroke="#1a3a5c" stroke-width="1"/>
+            <text x="155" y="14" font-size="6.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">IMMUNE INFILTRATION</text>
+            <circle cx="195" cy="70" r="9" fill="#1d9e75" opacity="0.35" stroke="#1d9e75" stroke-width="1"/>
+            <circle cx="225" cy="55" r="9" fill="#1d9e75" opacity="0.35" stroke="#1d9e75" stroke-width="1"/>
+            <circle cx="255" cy="75" r="9" fill="#1d9e75" opacity="0.35" stroke="#1d9e75" stroke-width="1"/>
+            <circle cx="220" cy="95" r="9" fill="#1d9e75" opacity="0.35" stroke="#1d9e75" stroke-width="1"/>
+            <circle cx="225" cy="55" r="30" fill="none" stroke="#5dcaa5" stroke-width="1" stroke-dasharray="3 2" opacity="0.45"/>
+            <circle cx="200" cy="35" r="5" fill="#c9a84c" opacity="0.8" stroke="#e4c97e" stroke-width="1"/>
+            <circle cx="248" cy="32" r="5" fill="#c9a84c" opacity="0.8" stroke="#e4c97e" stroke-width="1"/>
+            <circle cx="265" cy="50" r="5" fill="#c9a84c" opacity="0.7" stroke="#e4c97e" stroke-width="1"/>
+            <circle cx="175" cy="58" r="5" fill="#5dcaa5" opacity="0.65" stroke="#5dcaa5" stroke-width="1"/>
+            <circle cx="190" cy="42" r="5" fill="#c9a84c" opacity="0.6" stroke="#e4c97e" stroke-width="1"/>
+            <circle cx="260" cy="100" r="5" fill="#5dcaa5" opacity="0.5" stroke="#5dcaa5" stroke-width="1"/>
+            <circle cx="340" cy="80" r="5" fill="#5dcaa5" opacity="0.35" stroke="#5dcaa5" stroke-width="1"/>
+            <line x1="225" y1="55" x2="200" y2="35" stroke="#e4c97e" stroke-width="0.8" opacity="0.4"/>
+            <line x1="225" y1="55" x2="248" y2="32" stroke="#e4c97e" stroke-width="0.8" opacity="0.4"/>
+            <line x1="225" y1="55" x2="265" y2="50" stroke="#e4c97e" stroke-width="0.8" opacity="0.35"/>
+            <text x="155" y="130" font-size="6" fill="#9babb8" font-family="Inter,sans-serif">R = radius threshold</text>
+            <text x="155" y="140" font-size="6" fill="#5dcaa5" font-family="Inter,sans-serif">● Tumor cell</text>
+            <text x="200" y="140" font-size="6" fill="#e4c97e" font-family="Inter,sans-serif">● Immune cell</text>
+            <text x="250" y="140" font-size="6" fill="#9babb8" font-family="Inter,sans-serif">-- Radius R</text>
+          </svg>
+        </div>
+
+        <div class="sp-flow">
+          <div class="sp-flow-step"><strong>ST Data</strong>10x Genomics FFPE</div>
+          <div class="sp-flow-arrow">→</div>
+          <div class="sp-flow-step"><strong>Island QC</strong>k-means · 100 regions</div>
+          <div class="sp-flow-arrow">→</div>
+          <div class="sp-flow-step"><strong>CV Scoring</strong>CV<sub>W</sub> &amp; CV<sub>B</sub></div>
+          <div class="sp-flow-arrow">→</div>
+          <div class="sp-flow-step"><strong>ICI Score</strong>Proximity metrics</div>
+          <div class="sp-flow-arrow">→</div>
+          <div class="sp-flow-step"><strong>Target Rank</strong>Prioritisation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div class="section-wrap" id="about">
@@ -815,6 +1004,11 @@
   <div class="fade-up"><p class="section-label">Scientific Engagement</p><h2>Conferences &amp; <span>Presentations</span></h2></div>
   <div class="conf-list fade-up">
     <div class="conf-item">
+      <span class="conf-year">2026</span>
+      <div><div class="conf-name">EuroBioc2026 — European Bioconductor Conference</div><div class="conf-detail">Poster: Spatial Transcriptomics Enables Navigation of the Tumor Microenvironment and Evaluation of Tumor Accessibility for Robust Drug Target Prioritization · June 3–5, 2026</div></div>
+      <div class="conf-loc">Turku, Finland</div>
+    </div>
+    <div class="conf-item">
       <span class="conf-year">2024</span>
       <div><div class="conf-name">NCS2024 — Non-Clinical Statistics Conference</div><div class="conf-detail">September 23–25, 2024</div></div>
       <div class="conf-loc">Wiesbaden, Germany</div>
@@ -852,6 +1046,288 @@
   </div>
 </div>
 <hr class="section-divider">
+
+<!-- GITHUB PROJECTS -->
+<div class="section-wrap" id="projects">
+  <div class="fade-up"><p class="section-label">Open Source</p><h2>GitHub <span>Projects</span></h2></div>
+
+  <!-- Summary paragraph -->
+  <div class="fade-up" style="background:rgba(29,158,117,0.05);border:1px solid rgba(29,158,117,0.18);border-radius:12px;padding:1.6rem 2rem;margin-bottom:2.8rem;max-width:900px;">
+    <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.95;margin:0;">
+      Across <strong style="color:var(--teal-light)">15 public repositories</strong>, my open-source work spans five interconnected areas of computational biology and biostatistics. Several key packages are hosted under collaborative GitHub organisations — <strong style="color:var(--cream)">CenterForStatistics-UGent</strong> (Ghent University) and <strong style="color:var(--cream)">koenvandenberge</strong> — reflecting academic partnerships formed during and after the PhD.
+      <strong style="color:var(--cream)">Differential gene expression methodology</strong> is represented by tools for bulk RNA-seq, single-cell RNA-seq, and long non-coding RNA data — from simulation frameworks (SPsimSeq) and Shiny-based exploration apps (AppDGE) to non-parametric model implementations (PIMseq).
+      <strong style="color:var(--cream)">Experimental design &amp; data utility</strong> is covered by tools for RNA subsampling (RNAsub) and optimal sample pooling strategies.
+      <strong style="color:var(--cream)">Single-cell &amp; multi-omics analysis</strong> is the focus of voomCLR, an R package for differential cell composition analysis across scRNA-seq, flow cytometry, and CyTOF.
+      <strong style="color:var(--cream)">High-content imaging &amp; compound screening</strong> is addressed by the HCIcellPaintingAssayQCtool, which automates quality control of Cell Painting assays using 2D biosignature prediction intervals.
+      Finally, <strong style="color:var(--cream)">reproducible research &amp; supplementary archives</strong> house code, extended results, and additional figures for published manuscripts from the PhD thesis and subsequent journal articles.
+    </p>
+  </div>
+
+  <!-- Pictogram -->
+  <div class="fade-up" style="margin-bottom:2.8rem;">
+    <svg viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;display:block;">
+
+      <!-- ── CATEGORY 1: DGE Methodology ── -->
+      <!-- hex background -->
+      <polygon points="90,18 140,18 165,60 140,102 90,102 65,60" fill="rgba(29,158,117,0.10)" stroke="rgba(29,158,117,0.35)" stroke-width="1.2"/>
+      <!-- icon: bar chart -->
+      <rect x="86" y="72" width="8" height="18" rx="1.5" fill="#1d9e75" opacity="0.7"/>
+      <rect x="98" y="62" width="8" height="28" rx="1.5" fill="#5dcaa5" opacity="0.8"/>
+      <rect x="110" y="52" width="8" height="38" rx="1.5" fill="#1d9e75" opacity="0.9"/>
+      <rect x="122" y="66" width="8" height="24" rx="1.5" fill="#5dcaa5" opacity="0.7"/>
+      <rect x="134" y="58" width="8" height="32" rx="1.5" fill="#1d9e75" opacity="0.8"/>
+      <line x1="82" y1="90" x2="148" y2="90" stroke="#5dcaa5" stroke-width="0.8" opacity="0.5"/>
+      <!-- label -->
+      <text x="115" y="120" text-anchor="middle" font-size="8.5" font-family="Inter,sans-serif" fill="#9babb8" font-weight="500">DGE Methodology</text>
+      <text x="115" y="131" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" fill="#5a7080">SPsimSeq · PIMseq · AppDGE</text>
+
+      <!-- ── CATEGORY 2: Experimental Design ── -->
+      <polygon points="218,18 268,18 293,60 268,102 218,102 193,60" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.3)" stroke-width="1.2"/>
+      <!-- icon: flask / funnel shape -->
+      <polygon points="243,36 257,36 262,50 268,72 232,72 238,50" fill="none" stroke="#c9a84c" stroke-width="1.4" stroke-linejoin="round"/>
+      <line x1="236" y1="58" x2="264" y2="58" stroke="#c9a84c" stroke-width="0.9" opacity="0.6"/>
+      <ellipse cx="250" cy="72" rx="9" ry="3" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1"/>
+      <rect x="247" y="72" width="6" height="10" rx="1" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="0.9"/>
+      <text x="243" y="120" text-anchor="middle" font-size="8.5" font-family="Inter,sans-serif" fill="#9babb8" font-weight="500">Experimental Design</text>
+      <text x="243" y="131" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" fill="#5a7080">RNAsub · RNA-pooling</text>
+
+      <!-- ── CATEGORY 3: Single-cell & Multi-omics ── -->
+      <polygon points="346,18 396,18 421,60 396,102 346,102 321,60" fill="rgba(93,202,165,0.08)" stroke="rgba(93,202,165,0.3)" stroke-width="1.2"/>
+      <!-- icon: cell scatter -->
+      <circle cx="371" cy="52" r="6" fill="none" stroke="#5dcaa5" stroke-width="1.3"/>
+      <circle cx="371" cy="52" r="2.5" fill="#5dcaa5" opacity="0.7"/>
+      <circle cx="356" cy="66" r="4.5" fill="none" stroke="#1d9e75" stroke-width="1.1" opacity="0.8"/>
+      <circle cx="386" cy="44" r="4" fill="none" stroke="#5dcaa5" stroke-width="1.1" opacity="0.7"/>
+      <circle cx="385" cy="70" r="5" fill="none" stroke="#1d9e75" stroke-width="1.1" opacity="0.6"/>
+      <circle cx="360" cy="44" r="3.5" fill="none" stroke="#5dcaa5" stroke-width="1" opacity="0.6"/>
+      <line x1="365" y1="55" x2="358" y2="63" stroke="#5dcaa5" stroke-width="0.8" opacity="0.45"/>
+      <line x1="377" y1="50" x2="383" y2="46" stroke="#5dcaa5" stroke-width="0.8" opacity="0.45"/>
+      <text x="371" y="120" text-anchor="middle" font-size="8.5" font-family="Inter,sans-serif" fill="#9babb8" font-weight="500">Single-cell &amp; Multi-omics</text>
+      <text x="371" y="131" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" fill="#5a7080">voomCLR</text>
+
+      <!-- ── CATEGORY 4: High-Content Imaging ── -->
+      <polygon points="474,18 524,18 549,60 524,102 474,102 449,60" fill="rgba(228,201,126,0.07)" stroke="rgba(228,201,126,0.28)" stroke-width="1.2"/>
+      <!-- icon: grid / plate -->
+      <rect x="456" y="38" width="34" height="34" rx="3" fill="none" stroke="#e4c97e" stroke-width="1.2" opacity="0.7"/>
+      <line x1="467" y1="38" x2="467" y2="72" stroke="#e4c97e" stroke-width="0.8" opacity="0.45"/>
+      <line x1="478" y1="38" x2="478" y2="72" stroke="#e4c97e" stroke-width="0.8" opacity="0.45"/>
+      <line x1="456" y1="49" x2="490" y2="49" stroke="#e4c97e" stroke-width="0.8" opacity="0.45"/>
+      <line x1="456" y1="60" x2="490" y2="60" stroke="#e4c97e" stroke-width="0.8" opacity="0.45"/>
+      <!-- highlight one well -->
+      <rect x="478" y="38" width="12" height="11" rx="1" fill="rgba(29,158,117,0.25)"/>
+      <rect x="467" y="60" width="11" height="12" rx="1" fill="rgba(201,168,76,0.25)"/>
+      <text x="499" y="120" text-anchor="middle" font-size="8.5" font-family="Inter,sans-serif" fill="#9babb8" font-weight="500">HCI &amp; Drug Screening</text>
+      <text x="499" y="131" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" fill="#5a7080">HCIcellPaintingAssayQCtool</text>
+
+      <!-- ── CATEGORY 5: Reproducible Research ── -->
+      <polygon points="602,18 652,18 677,60 652,102 602,102 577,60" fill="rgba(155,171,184,0.07)" stroke="rgba(155,171,184,0.25)" stroke-width="1.2"/>
+      <!-- icon: document stack -->
+      <rect x="613" y="42" width="26" height="32" rx="2" fill="none" stroke="#9babb8" stroke-width="1.2" opacity="0.7"/>
+      <rect x="609" y="38" width="26" height="32" rx="2" fill="none" stroke="#9babb8" stroke-width="1" opacity="0.5"/>
+      <line x1="614" y1="48" x2="630" y2="48" stroke="#9babb8" stroke-width="0.9" opacity="0.55"/>
+      <line x1="614" y1="54" x2="630" y2="54" stroke="#9babb8" stroke-width="0.9" opacity="0.55"/>
+      <line x1="614" y1="60" x2="624" y2="60" stroke="#9babb8" stroke-width="0.9" opacity="0.45"/>
+      <!-- small R logo hint -->
+      <text x="627" y="70" font-size="10" font-family="Inter,sans-serif" fill="#5dcaa5" opacity="0.7" font-weight="700">R</text>
+      <text x="627" y="120" text-anchor="middle" font-size="8.5" font-family="Inter,sans-serif" fill="#9babb8" font-weight="500">Reproducible Research</text>
+      <text x="627" y="131" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" fill="#5a7080">PhD thesis · Supplementary</text>
+
+      <!-- ── Connectors between hexagons ── -->
+      <line x1="165" y1="60" x2="193" y2="60" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="293" y1="60" x2="321" y2="60" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="421" y1="60" x2="449" y2="60" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 2"/>
+      <line x1="549" y1="60" x2="577" y2="60" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 2"/>
+
+      <!-- ── Right side: repo count badge ── -->
+      <rect x="720" y="28" width="120" height="64" rx="10" fill="rgba(29,158,117,0.07)" stroke="rgba(29,158,117,0.22)" stroke-width="1.2"/>
+      <text x="780" y="56" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="28" fill="#5dcaa5" font-weight="400">15</text>
+      <text x="780" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#9babb8" letter-spacing="1.2">PUBLIC REPOS</text>
+      <!-- language tag -->
+      <rect x="740" y="104" width="30" height="16" rx="4" fill="rgba(29,158,117,0.12)" stroke="rgba(29,158,117,0.3)" stroke-width="1"/>
+      <text x="755" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#5dcaa5" font-weight="600">R</text>
+      <rect x="776" y="104" width="54" height="16" rx="4" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+      <text x="803" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#c9a84c">Bioconductor</text>
+
+      <!-- bottom label -->
+      <text x="115" y="155" text-anchor="middle" font-size="6.5" font-family="Inter,sans-serif" fill="rgba(29,158,117,0.6)" letter-spacing="1">●</text>
+      <text x="243" y="155" text-anchor="middle" font-size="6.5" font-family="Inter,sans-serif" fill="rgba(201,168,76,0.6)" letter-spacing="1">●</text>
+      <text x="371" y="155" text-anchor="middle" font-size="6.5" font-family="Inter,sans-serif" fill="rgba(93,202,165,0.6)" letter-spacing="1">●</text>
+      <text x="499" y="155" text-anchor="middle" font-size="6.5" font-family="Inter,sans-serif" fill="rgba(228,201,126,0.6)" letter-spacing="1">●</text>
+      <text x="627" y="155" text-anchor="middle" font-size="6.5" font-family="Inter,sans-serif" fill="rgba(155,171,184,0.6)" letter-spacing="1">●</text>
+
+    </svg>
+  </div>
+
+  <!-- Category: R Packages & Core Tools -->
+  <p class="section-label" style="margin-bottom:1rem;">R Packages &amp; Core Tools</p>
+  <div class="projects-grid" style="margin-bottom:2.5rem;">
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/koenvandenberge/voomCLR" target="_blank" class="project-name">voomCLR</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">R package for differential cell composition analysis in single-cell studies. Applies centred log-ratio (CLR) transformation with voom-based precision weighting and bias correction to scRNA-seq, flow cytometry, and CyTOF data. Hosted under collaborator Koen Van den Berge's account. Companion to the 2025 <em>Bioinformatics</em> publication.</p>
+      <div class="project-footer">
+        <a href="https://github.com/koenvandenberge/voomCLR" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <span class="project-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          3
+        </span>
+        <span class="project-tag" style="font-size:0.65rem;padding:0.18rem 0.5rem;border-radius:3px;border:1px solid rgba(201,168,76,0.35);color:var(--gold-light);">Published 2025</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/AlemuTA/RNAsub" target="_blank" class="project-name">RNAsub</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">Lightweight R package for subsampling RNA-seq datasets to a target library size or total count per sample. Streamlined from the subSeq Bioconductor package for flexible integration in custom analysis and simulation pipelines.</p>
+      <div class="project-footer">
+        <a href="https://github.com/AlemuTA/RNAsub" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/CenterForStatistics-UGent/PIMseq" target="_blank" class="project-name">PIMseq</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">R package implementing Probabilistic Index Models (PIM) for differential expression testing in bulk and single-cell RNA-seq data. A distribution-free, rank-based approach that handles complex experimental designs without strong parametric assumptions. Hosted under the Center for Statistics UGent organisation.</p>
+      <div class="project-footer">
+        <a href="https://github.com/CenterForStatistics-UGent/PIMseq" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <span class="project-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          3
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category: Simulation & Experimental Design -->
+  <p class="section-label" style="margin-bottom:1rem;">Simulation &amp; Experimental Design</p>
+  <div class="projects-grid" style="margin-bottom:2.5rem;">
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/CenterForStatistics-UGent/SPsimSeq" target="_blank" class="project-name">SPsimSeq</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">Semi-parametric simulator for bulk and single-cell RNA-seq data. Uses an exponential-family density estimator and Gaussian copulas to learn distributional properties — including gene-gene correlations and zero-inflation — from real data, then generates realistic synthetic datasets for benchmarking DGE tools. Also available on Bioconductor. Published in <em>Bioinformatics</em> (2020). Hosted under the Center for Statistics UGent organisation.</p>
+      <div class="project-footer">
+        <a href="https://github.com/CenterForStatistics-UGent/SPsimSeq" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <span class="project-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          10
+        </span>
+        <span class="project-tag" style="font-size:0.65rem;padding:0.18rem 0.5rem;border-radius:3px;border:1px solid rgba(201,168,76,0.35);color:var(--gold-light);">Published 2020</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/AlemuTA/RNA-sample-pooling-supplementary-results-" target="_blank" class="project-name">RNA-sample-pooling-supplementary</a>
+        <span class="project-lang">HTML / R</span>
+      </div>
+      <p class="project-desc">Reproducible code and supplementary results for the <em>BMC Genomics</em> (2020) paper on RNA sample pooling strategies — evaluating how pooling affects statistical power and cost-efficiency across different experimental designs.</p>
+      <div class="project-footer">
+        <a href="https://github.com/AlemuTA/RNA-sample-pooling-supplementary-results-" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <span class="project-tag" style="font-size:0.65rem;padding:0.18rem 0.5rem;border-radius:3px;border:1px solid rgba(201,168,76,0.35);color:var(--gold-light);">Published 2020</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category: Interactive Tools & Shiny Apps -->
+  <p class="section-label" style="margin-bottom:1rem;">Interactive Tools &amp; Shiny Apps</p>
+  <div class="projects-grid" style="margin-bottom:2.5rem;">
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/AlemuTA/AppDGE" target="_blank" class="project-name">AppDGE</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">An interactive R Shiny application guiding researchers through differential gene expression analysis workflows. Provides an accessible interface for RNA-seq data exploration, tool selection, and comparison of DGE methods across multiple statistical frameworks.</p>
+      <div class="project-footer">
+        <a href="https://github.com/AlemuTA/AppDGE" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category: High-Content Imaging & Drug Screening -->
+  <p class="section-label" style="margin-bottom:1rem;">High-Content Imaging &amp; Drug Screening</p>
+  <div class="projects-grid" style="margin-bottom:2.5rem;">
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/AlemuTA/HCIcellPaintingAssayQCtool" target="_blank" class="project-name">HCIcellPaintingAssayQCtool</a>
+        <span class="project-lang">R</span>
+      </div>
+      <p class="project-desc">Automated quality control tool for high-content imaging (Cell Painting) data. Constructs 2D prediction intervals on reference biosignatures to detect aberrant assay plates in compound screening campaigns — supporting the published <em>SLAS Discovery</em> (2023) methodology.</p>
+      <div class="project-footer">
+        <a href="https://github.com/AlemuTA/HCIcellPaintingAssayQCtool" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <span class="project-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          1
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Category: Reproducible Research Archives -->
+  <p class="section-label" style="margin-bottom:1rem;">Reproducible Research &amp; PhD Archives</p>
+  <div class="projects-grid" style="margin-bottom:2rem;">
+
+    <div class="project-card fade-up">
+      <div class="project-header">
+        <a href="https://github.com/AlemuTA/UGent-PhD-Thesis-Supplementary-Files" target="_blank" class="project-name">UGent-PhD-Thesis-Supplementary</a>
+        <span class="project-lang">Multi</span>
+      </div>
+      <p class="project-desc">Supplementary results, extended analyses, and reproducible scripts accompanying the Ghent University PhD thesis on statistical methods for bulk and single-cell digital transcriptomics. Includes additional figures and benchmarking code supporting all methodology chapters.</p>
+      <div class="project-footer">
+        <a href="https://github.com/AlemuTA/UGent-PhD-Thesis-Supplementary-Files" target="_blank" class="project-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="github-cta fade-up">
+    <a href="https://github.com/AlemuTA" target="_blank" class="btn btn-outline">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View all 15 repositories on GitHub
+    </a>
+  </div>
+</div>
+
+
 
 <!-- HOBBIES -->
 <div class="section-wrap" id="hobbies">
