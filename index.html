@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alemu Takele Assefa, PhD — Principal Statistician</title>
+<meta name="description" content="Personal academic website of Alemu Takele Assefa, PhD — Principal Statistician at Johnson & Johnson, biostatistician and computational biologist based in Belgium.">
+<meta property="og:title" content="Alemu Takele Assefa, PhD">
+<meta property="og:description" content="Principal Statistician · Biostatistics · Computational Biology · Cancer Immunotherapy">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- GoatCounter Analytics — replace YOUR_CODE with your GoatCounter site code -->
+<script data-goatcounter="https://YOUR_CODE.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #12263f;
+    --navy-light: #1a3a5c;
+    --teal: #1d9e75;
+    --teal-light: #5dcaa5;
+    --gold: #c9a84c;
+    --gold-light: #e4c97e;
+    --cream: #f5f0e8;
+    --text-main: #f0ece4;
+    --text-muted: #9babb8;
+    --border: rgba(255,255,255,0.08);
+    --card-bg: rgba(255,255,255,0.035);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--text-main); line-height: 1.7; font-size: 15px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,42,0.93); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; letter-spacing: 0.05em; color: var(--gold-light); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal-light); }
+  .nav-social { display: flex; gap: 0.6rem; align-items: center; }
+  .nav-social a { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s; }
+  .nav-social a:hover { color: var(--teal-light); border-color: rgba(93,202,165,0.4); }
+  .nav-social svg { width: 13px; height: 13px; }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 3rem 4rem; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 5rem; align-items: center; max-width: 1100px; width: 100%; }
+  .hero-glow-1 { position: absolute; right: -100px; top: -100px; width: 580px; height: 580px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero-glow-2 { position: absolute; left: -80px; bottom: -80px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
+  .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1rem; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 300; line-height: 1.1; color: var(--cream); margin-bottom: 0.4rem; white-space: nowrap; }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; font-style: italic; color: var(--text-muted); margin-bottom: 2rem; display: block; }
+  .hero-bio { font-size: 0.93rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2rem; max-width: 480px; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.4rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--teal); color: #fff; border: 1px solid var(--teal); }
+  .btn-primary:hover { background: var(--teal-light); border-color: var(--teal-light); }
+  .btn-outline { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+  .btn-outline:hover { color: var(--cream); border-color: rgba(255,255,255,0.25); }
+
+  /* social strip under hero CTA */
+  .hero-social { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .hs-link { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.38rem 0.85rem; border-radius: 20px; font-size: 0.72rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s; }
+  .hs-link svg { width: 12px; height: 12px; flex-shrink: 0; }
+  .hs-link:hover { color: var(--cream); border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+  .hs-link.linkedin:hover { border-color: rgba(10,102,194,0.6); color: #5aade0; background: rgba(10,102,194,0.08); }
+  .hs-link.facebook:hover { border-color: rgba(24,119,242,0.5); color: #7ab3f5; background: rgba(24,119,242,0.07); }
+  .hs-link.scholar:hover { border-color: rgba(201,168,76,0.5); color: var(--gold-light); background: rgba(201,168,76,0.07); }
+  .hs-link.github:hover { border-color: rgba(255,255,255,0.35); color: #ddd; background: rgba(255,255,255,0.06); }
+  .hs-link.orcid:hover { border-color: rgba(166,206,57,0.5); color: #a6ce39; background: rgba(166,206,57,0.07); }
+
+  /* Profile card */
+  .profile-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+  .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--navy-light)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 500; color: var(--cream); }
+  .profile-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--cream); margin-bottom: 0.15rem; }
+  .profile-role { font-size: 0.77rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .stat { background: rgba(29,158,117,0.06); border: 1px solid rgba(29,158,117,0.15); border-radius: 8px; padding: 0.7rem 0.8rem; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; color: var(--teal-light); line-height: 1; }
+  .stat-lbl { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 0.15rem; }
+
+  /* SECTION */
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 300; color: var(--cream); margin-bottom: 2.8rem; line-height: 1.1; }
+  h2 span { font-style: italic; color: var(--gold-light); }
+  .section-divider { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+  .about-text { font-size: 0.92rem; color: var(--text-muted); line-height: 1.9; }
+  .about-text p { margin-bottom: 1rem; }
+  .domain-list { display: flex; flex-direction: column; gap: 0.55rem; }
+  .domain-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.87rem; color: var(--text-muted); }
+  .domain-item::before { content: '◆'; color: var(--teal); font-size: 0.55rem; flex-shrink: 0; }
+
+  /* EXPERIENCE */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-meta { text-align: right; }
+  .tl-period { font-size: 0.78rem; color: var(--teal-light); font-weight: 500; margin-bottom: 0.3rem; }
+  .tl-loc { font-size: 0.72rem; color: var(--text-muted); font-style: italic; }
+  .tl-org { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.3rem; }
+  .tl-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--cream); margin-bottom: 0.2rem; }
+  .tl-company { font-size: 0.83rem; color: var(--gold-light); margin-bottom: 1rem; }
+  .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .tl-bullets li { font-size: 0.87rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+  .tl-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-size: 0.75rem; top: 0.06rem; }
+
+  /* PUBLICATIONS */
+  .pub-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .pub-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; transition: border-color 0.2s, background 0.2s; position: relative; }
+  .pub-card:hover { border-color: rgba(29,158,117,0.3); background: rgba(29,158,117,0.03); }
+  .pub-year { font-size: 0.71rem; font-weight: 500; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 0.4rem; }
+  .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 500; color: var(--cream); margin-bottom: 0.35rem; line-height: 1.3; }
+  .pub-authors { font-size: 0.77rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+  .pub-authors strong { color: rgba(240,236,228,0.85); }
+  .pub-journal { font-size: 0.77rem; color: var(--gold-light); font-style: italic; }
+  .pub-badge { position: absolute; top: 1.1rem; right: 1.4rem; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 3px; border: 1px solid rgba(29,158,117,0.3); color: var(--teal-light); background: rgba(29,158,117,0.05); }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.4rem; }
+  .edu-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem; transition: border-color 0.2s; }
+  .edu-card:hover { border-color: rgba(201,168,76,0.3); }
+  .edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: var(--cream); margin-bottom: 0.25rem; }
+  .edu-school { font-size: 0.8rem; color: var(--gold-light); margin-bottom: 0.2rem; }
+  .edu-period { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.9rem; }
+  .edu-desc { font-size: 0.81rem; color: var(--text-muted); line-height: 1.65; }
+  .edu-highlight { font-size: 0.74rem; margin-top: 0.75rem; color: var(--teal-light); font-weight: 500; }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; }
+  .skill-group { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.6rem; }
+  .skill-group-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .skill-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; padding: 0.28rem 0.6rem; border-radius: 4px; border: 1px solid var(--border); color: var(--text-muted); }
+  .skill-tag.hi { border-color: rgba(29,158,117,0.3); color: var(--teal-light); background: rgba(29,158,117,0.06); }
+
+  /* CONFERENCES */
+  .conf-list { display: flex; flex-direction: column; }
+  .conf-item { display: grid; grid-template-columns: 55px 1fr auto; gap: 1.4rem; align-items: start; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+  .conf-item:last-child { border-bottom: none; }
+  .conf-year { font-size: 0.77rem; color: var(--teal-light); font-weight: 500; padding-top: 0.05rem; }
+  .conf-name { font-size: 0.87rem; color: var(--cream); margin-bottom: 0.2rem; }
+  .conf-detail { font-size: 0.77rem; color: var(--text-muted); line-height: 1.5; }
+  .conf-loc { font-size: 0.71rem; color: var(--text-muted); text-align: right; padding-top: 0.05rem; white-space: nowrap; }
+
+  /* HOBBIES */
+  .hobbies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem; }
+  .hobby-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.75rem; transition: border-color 0.25s, transform 0.25s; text-align: center; }
+  .hobby-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+  .hobby-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+  .hobby-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
+  .hobby-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* CONTACT */
+  #contact { background: var(--navy-mid); border-top: 1px solid var(--border); padding: 5rem 3rem; }
+  .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .contact-inner h2 { margin-bottom: 0.8rem; }
+  .contact-intro { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.8; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 2.5rem; }
+  .contact-card { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 1.2rem 1rem; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+  .contact-card svg { width: 20px; height: 20px; }
+  .contact-card span { font-size: 0.78rem; font-weight: 500; }
+  .contact-card small { font-size: 0.68rem; color: var(--text-muted); opacity: 0.7; }
+  .contact-card:hover { transform: translateY(-2px); }
+  .contact-card.email:hover { border-color: rgba(29,158,117,0.4); color: var(--teal-light); background: rgba(29,158,117,0.06); }
+  .contact-card.linkedin:hover { border-color: rgba(10,102,194,0.5); color: #5aade0; background: rgba(10,102,194,0.07); }
+  .contact-card.facebook:hover { border-color: rgba(24,119,242,0.5); color: #7ab3f5; background: rgba(24,119,242,0.07); }
+  .contact-card.scholar:hover { border-color: rgba(201,168,76,0.5); color: var(--gold-light); background: rgba(201,168,76,0.07); }
+  .contact-card.researchgate:hover { border-color: rgba(29,158,117,0.4); color: var(--teal-light); background: rgba(29,158,117,0.06); }
+  .contact-card.orcid:hover { border-color: rgba(166,206,57,0.5); color: #a6ce39; background: rgba(166,206,57,0.07); }
+  .contact-card.github:hover { border-color: rgba(255,255,255,0.35); color: #ddd; background: rgba(255,255,255,0.06); }
+
+  /* FOOTER */
+  footer { background: var(--navy); border-top: 1px solid var(--border); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.73rem; color: var(--text-muted); }
+  footer a { color: var(--text-muted); text-decoration: none; }
+  footer a:hover { color: var(--teal-light); }
+
+  /* CAREER PROGRESSION LADDER */
+  .progression { display: flex; flex-direction: column; gap: 0; margin: 1.2rem 0 1.6rem; position: relative; padding-left: 1.6rem; }
+  .progression::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--teal)); border-radius: 2px; opacity: 0.4; }
+  .prog-step { display: flex; align-items: flex-start; gap: 0.9rem; padding: 0.65rem 0; position: relative; }
+  .prog-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 0.18rem; position: absolute; left: -1.6rem; border: 2px solid; }
+  .prog-dot.past { background: transparent; border-color: var(--teal); opacity: 0.55; }
+  .prog-dot.current { background: var(--gold); border-color: var(--gold-light); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+  .prog-body { flex: 1; }
+  .prog-title { font-size: 0.88rem; font-weight: 500; color: var(--cream); line-height: 1.3; }
+  .prog-title.current-role { color: var(--gold-light); }
+  .prog-meta { display: flex; gap: 0.8rem; margin-top: 0.2rem; flex-wrap: wrap; }
+  .prog-period { font-size: 0.72rem; color: var(--teal-light); }
+  .prog-badge { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 3px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); color: var(--gold-light); }
+
+  /* EXPERIENCE ILLUSTRATIONS */
+  .tl-illustration { width: 100%; height: 110px; border-radius: 8px; margin-bottom: 1.2rem; overflow: hidden; background: rgba(255,255,255,0.02); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .tl-illustration svg { width: 100%; height: 100%; }
+
+  /* PUBLICATION PROFILE BANNER */
+  .pub-profile-banner { display: flex; align-items: center; gap: 1rem; background: rgba(29,158,117,0.05); border: 1px solid rgba(29,158,117,0.2); border-radius: 10px; padding: 1rem 1.4rem; margin-bottom: 2rem; }
+  .pub-profile-banner p { font-size: 0.82rem; color: var(--text-muted); flex: 1; min-width: 180px; }
+  .pub-profile-banner p strong { color: var(--teal-light); }
+  .pub-profile-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .pub-prof-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; border-radius: 5px; font-size: 0.75rem; font-weight: 500; text-decoration: none; border: 1px solid var(--border); color: var(--text-muted); transition: all 0.2s; }
+  .pub-prof-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .pub-prof-link.scholar { border-color: rgba(201,168,76,0.35); color: var(--gold-light); }
+  .pub-prof-link.scholar:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.6); }
+  .pub-prof-link.rg { border-color: rgba(29,158,117,0.35); color: var(--teal-light); }
+  .pub-prof-link.rg:hover { background: rgba(29,158,117,0.08); border-color: rgba(29,158,117,0.6); }
+  .pub-prof-link.orcid { border-color: rgba(166,206,57,0.35); color: #a6ce39; }
+  .pub-prof-link.orcid:hover { background: rgba(166,206,57,0.06); border-color: rgba(166,206,57,0.6); }
+
+  /* GITHUB PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.6rem; transition: border-color 0.2s, background 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+  .project-card:hover { border-color: rgba(29,158,117,0.35); background: rgba(29,158,117,0.03); transform: translateY(-2px); }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+  .project-name { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 500; color: var(--teal-light); text-decoration: none; line-height: 1.3; }
+  .project-name:hover { color: var(--cream); }
+  .project-lang { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 3px; border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); }
+  .project-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; flex: 1; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; }
+  .project-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.73rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .project-link svg { width: 11px; height: 11px; }
+  .project-link:hover { color: var(--teal-light); }
+  .project-stars { display: flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: var(--text-muted); }
+  .project-stars svg { width: 12px; height: 12px; color: var(--gold); }
+  .github-cta { display: flex; justify-content: center; margin-top: 2rem; }
+
+  /* SPOTLIGHT */
+  .spotlight-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .spotlight-section { background: linear-gradient(135deg, rgba(29,158,117,0.07) 0%, rgba(13,27,42,0) 60%), var(--card-bg); border: 1px solid rgba(29,158,117,0.25); border-radius: 16px; padding: 3rem 2.5rem; position: relative; overflow: hidden; }
+  .spotlight-section::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.09) 0%, transparent 70%); pointer-events: none; }
+  .spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; position: relative; }
+  .spotlight-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-light); background: rgba(29,158,117,0.08); padding: 0.35rem 0.9rem; border-radius: 20px; border: 1px solid rgba(29,158,117,0.2); margin-bottom: 0.8rem; }
+  .spotlight-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 6px var(--teal); animation: pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.3); } }
+  .spotlight-conf-tag { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.72rem; color: var(--gold-light); background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); padding: 0.35rem 0.75rem; border-radius: 5px; margin-bottom: 1rem; }
+  .spotlight-title { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 500; color: var(--cream); line-height: 1.25; margin-bottom: 1rem; }
+  .spotlight-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .spotlight-pillars { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+  .sp-pillar { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .sp-pillar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 0.42rem; }
+  .sp-pillar-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+  .sp-pillar-text strong { color: var(--cream); }
+  .spotlight-poster-btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.65rem 1.4rem; border-radius: 5px; font-size: 0.8rem; font-weight: 500; text-decoration: none; background: rgba(29,158,117,0.1); border: 1px solid var(--teal); color: var(--teal-light); transition: all 0.2s; }
+  .spotlight-poster-btn:hover { background: rgba(29,158,117,0.2); border-color: var(--teal); color: #fff; }
+  .spotlight-vis { display: flex; flex-direction: column; gap: 1.1rem; }
+  .sp-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .sp-metric { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; }
+  .sp-metric-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--teal-light); line-height: 1; }
+  .sp-metric-lbl { font-size: 0.67rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4; }
+  .sp-svg-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .sp-flow { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; margin-top: 0.5rem; }
+  .sp-flow-step { flex: 1; text-align: center; padding: 0.7rem 0.4rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; font-size: 0.67rem; color: var(--text-muted); }
+  .sp-flow-step strong { display: block; font-size: 0.75rem; color: var(--teal-light); margin-bottom: 0.2rem; }
+  .sp-flow-arrow { font-size: 0.7rem; color: var(--text-muted); padding: 0 0.25rem; flex-shrink: 0; opacity: 0.5; }
+  @media (max-width: 860px) {
+    .spotlight-wrap { padding: 4rem 1.5rem; }
+    .spotlight-section { padding: 2rem 1.5rem; }
+    .spotlight-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    #hero { padding: 80px 1.5rem 3rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-wrap { padding: 4rem 1.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .timeline-meta { text-align: left; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .conf-item { grid-template-columns: 50px 1fr; }
+    .conf-loc { display: none; }
+    #contact { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">ATA</a>
+  <ul class="nav-links">
+    <li><a href="#spotlight">Research</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-social">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.851 3.37-1.851 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/Alemu.takele.assefa" target="_blank" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <!-- GitHub -->
+    <a href="https://github.com/AlemuTA" target="_blank" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:none; padding-top:100px;">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-grid">
+
+    <div class="fade-up">
+      <p class="eyebrow">Senior Principal Scientist in Biostatistics · PhD</p>
+      <h1>Alemu Takele, <em>Assefa</em></h1>
+      <span class="hero-subtitle">Biostatistics &amp; Computational Biology</span>
+      <p class="hero-bio">Senior Principal Scientist in Biostatistics at Johnson &amp; Johnson Innovative Medicine with over six years of industry experience and a PhD from Ghent University. I design and develop statistical methods for biomarker discovery in multi-omics data, with special focus on spatial transcriptomics and single-cell technologies in cancer immunotherapy.</p>
+      <div class="hero-cta">
+        <a href="#publications" class="btn btn-primary">View Publications</a>
+        <a href="mailto:alemuta@hotmail.com" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <!-- Social strip -->
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank" class="hs-link linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.851 3.37-1.851 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.facebook.com/Alemu.takele.assefa" target="_blank" class="hs-link facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a href="https://scholar.google.com/citations?user=g3t1XR0AAAAJ" target="_blank" class="hs-link scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://github.com/AlemuTA" target="_blank" class="hs-link github">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+        <a href="https://orcid.org/0000-0002-7773-0621" target="_blank" class="hs-link orcid">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 1 1 0-1.894zm2.894 9.765h-1.596v-4.873h1.596v4.873zm.955-5.922a.922.922 0 1 1-1.845 0 .922.922 0 0 1 1.845 0zm10.122 5.922h-1.597v-2.369c0-.565-.02-1.291-.787-1.291-.787 0-.908.615-.908 1.25v2.41h-1.596V8.545h1.532v.66h.022c.214-.405.736-1.291 1.517-1.291 1.621 0 1.92 1.067 1.92 2.456v2.876z"/></svg>
+          ORCID
+        </a>
+        <a href="https://www.researchgate.net/profile/Alemu-Assefa" target="_blank" class="hs-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a12.41 12.41 0 0 0-.35 3.063h-1.49v2.498h1.49v7.752h3.495v-7.752h2.325l.21-2.498h-2.535V6.12c0-.64.167-1.027.983-1.027h1.552V2.728c-.268-.038-1.19-.114-2.264-.114z"/></svg>
+          ResearchGate
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-card fade-up" style="transition-delay:0.2s;">
+      <div class="profile-avatar">ATA</div>
+      <p class="profile-name">Alemu Takele Assefa, PhD</p>
+      <p class="profile-role">Senior Principal Scientist in Biostatistics<br>Johnson &amp; Johnson Innovative Medicine · Beerse, Belgium</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">321+</div><div class="stat-lbl">Citations</div></div>
+        <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Publications</div></div>
+        <div class="stat"><div class="stat-num">6+</div><div class="stat-lbl">Yrs Industry</div></div>
+      </div>
+      <p style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.5rem;letter-spacing:0.08em;">ORCID</p>
+      <a href="https://orcid.org/0000-0002-7773-0621" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--teal-light);text-decoration:none;">0000-0002-7773-0621</a>
+    </div>
+
+  </div>
+</section>
+<hr class="section-divider">
+
+<footer>
+  <p>&copy; 2025 Alemu Takele Assefa. All rights reserved.</p>
+  <p><a href="https://github.com/AlemuTA" target="_blank">GitHub</a></p>
+</footer>
+
+</body>
+</html>
