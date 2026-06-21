@@ -361,6 +361,74 @@
     #contact { padding: 4rem 1.5rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
+
+  /* ===== Expertise Map (knowledge graph) ===== */
+  .kg-block { margin: 0 0 3.4rem; }
+  .kg-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .kg-head h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; color: var(--cream); }
+  .kg-head h3 span { font-style: italic; color: var(--gold-light); }
+  .kg-hint { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
+  .kg-card { position: relative; background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .kg-card::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(circle at 22% 28%, rgba(29,158,117,0.10), transparent 45%),
+      radial-gradient(circle at 80% 75%, rgba(201,168,76,0.08), transparent 45%); pointer-events: none; }
+  .kg-svg { display: block; width: 100%; height: auto; touch-action: pan-y; }
+  .kg-edge { stroke: rgba(255,255,255,0.10); stroke-width: 1; transition: stroke 0.25s, stroke-width 0.25s, opacity 0.25s; }
+  .kg-edge.hot { stroke: var(--teal); stroke-width: 1.6; opacity: 1; }
+  .kg-node circle { transition: r 0.2s ease, filter 0.25s ease; cursor: pointer; }
+  .kg-node text { font-family: 'Inter', sans-serif; fill: var(--text-main); pointer-events: none; user-select: none; transition: fill 0.25s, opacity 0.25s; }
+  .kg-node.core circle { fill: rgba(201,168,76,0.18); stroke: var(--gold); stroke-width: 1.6; }
+  .kg-node.core text { fill: var(--gold-light); font-weight: 600; }
+  .kg-node.domain circle { fill: rgba(29,158,117,0.16); stroke: var(--teal); stroke-width: 1.3; }
+  .kg-node.domain text { fill: var(--teal-light); font-weight: 500; }
+  .kg-node.tool circle { fill: rgba(201,168,76,0.10); stroke: var(--gold-light); stroke-width: 1; stroke-dasharray: 2.4 2.2; }
+  .kg-node.tool text { fill: var(--gold-light); font-family: 'JetBrains Mono', monospace; }
+  .kg-node.topic circle { fill: rgba(255,255,255,0.04); stroke: rgba(155,171,184,0.5); stroke-width: 1; }
+  .kg-node.topic text { fill: var(--text-muted); }
+  .kg-svg.dim .kg-node:not(.active) circle { opacity: 0.22; }
+  .kg-svg.dim .kg-node:not(.active) text { opacity: 0.18; }
+  .kg-svg.dim .kg-edge:not(.hot) { opacity: 0.12; }
+  .kg-node.active circle { filter: drop-shadow(0 0 7px rgba(29,158,117,0.55)); }
+  .kg-legend { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; font-size: 0.72rem; color: var(--text-muted); }
+  .kg-legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .kg-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .kg-tip { position: absolute; pointer-events: none; opacity: 0; transform: translateY(4px); transition: opacity 0.18s, transform 0.18s; background: rgba(13,27,42,0.96); border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.7rem; max-width: 230px; z-index: 5; }
+  .kg-tip.show { opacity: 1; transform: translateY(0); }
+  .kg-tip strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.15rem; }
+  .kg-tip small { font-size: 0.72rem; color: var(--text-muted); line-height: 1.45; }
+
+  /* ===== Cited By (top citing works) ===== */
+  .citedby-block { margin-top: 3rem; }
+  .citedby-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.3rem; }
+  .citedby-head h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; color: var(--cream); }
+  .citedby-head h3 span { font-style: italic; color: var(--gold-light); }
+  .citedby-sub { font-size: 0.77rem; color: var(--text-muted); }
+  .citedby-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .cited-card { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; transition: border-color 0.2s, background 0.2s; text-decoration: none; }
+  .cited-card:hover { border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.04); }
+  .cited-rank { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--gold-light); line-height: 1; min-width: 1.4rem; padding-top: 0.1rem; }
+  .cited-title { font-family: 'Cormorant Garamond', serif; font-size: 1.06rem; font-weight: 500; color: var(--cream); line-height: 1.3; margin-bottom: 0.3rem; }
+  .cited-meta { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 0.45rem; }
+  .cited-meta em { color: rgba(240,236,228,0.8); font-style: normal; }
+  .cited-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .cited-cites { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.04em; color: var(--gold-light); border: 1px solid rgba(201,168,76,0.35); border-radius: 3px; padding: 0.16rem 0.5rem; }
+  .cited-venue { font-size: 0.7rem; color: var(--teal); }
+  .cb-state { font-size: 0.8rem; color: var(--text-muted); padding: 0.4rem 0; }
+  .cb-skel { height: 86px; border-radius: 10px; border: 1px solid var(--border);
+    background: linear-gradient(100deg, rgba(255,255,255,0.02) 30%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.02) 70%);
+    background-size: 220% 100%; animation: cbshimmer 1.3s ease infinite; }
+  @keyframes cbshimmer { 0% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+  @media (max-width: 600px) { .cited-card { grid-template-columns: 1fr; gap: 0.5rem; } .cited-rank { font-size: 1.3rem; } }
+
+  /* ===== Visitor comments ===== */
+  #comments { max-width: 1100px; margin: 0 auto; padding: 5rem 3rem 1rem; }
+  .comments-head { text-align: center; margin-bottom: 1.8rem; }
+  .comments-head h2 { margin-bottom: 0.6rem; }
+  .comments-intro { font-size: 0.85rem; color: var(--text-muted); max-width: 540px; margin: 0 auto; }
+  .giscus-shell { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; min-height: 120px; }
+  .comments-fallback { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; text-align: center; padding: 1rem; }
+  .comments-fallback a { color: var(--teal-light); }
+  @media (max-width: 600px) { #comments { padding: 3.5rem 1.5rem 1rem; } }
 </style>
 </head>
 <body>
@@ -628,6 +696,27 @@
 <!-- EXPERIENCE -->
 <div class="section-wrap" id="experience">
   <div class="fade-up"><p class="section-label">Career</p><h2>Work <span>Experience</span></h2></div>
+
+  <div class="kg-block fade-up">
+    <div class="kg-head">
+      <h3>Expertise <span>Map</span></h3>
+      <span class="kg-hint">Hover or tap a node to trace connections · drag to rearrange</span>
+    </div>
+    <div class="kg-card" id="kgCard">
+      <svg class="kg-svg" id="kgSvg" viewBox="0 0 920 470" role="img" aria-label="Interactive map of research domains, methods, and software tools">
+        <g id="kgEdges"></g>
+        <g id="kgNodes"></g>
+      </svg>
+      <div class="kg-tip" id="kgTip"></div>
+    </div>
+    <div class="kg-legend">
+      <span><i class="kg-dot" style="background:var(--gold)"></i> Core profile</span>
+      <span><i class="kg-dot" style="background:var(--teal)"></i> Research domain</span>
+      <span><i class="kg-dot" style="background:var(--gold-light)"></i> Software / tool</span>
+      <span><i class="kg-dot" style="background:#9babb8"></i> Method &amp; application</span>
+    </div>
+  </div>
+
   <div class="timeline">
 
     <div class="timeline-item fade-up">
@@ -989,6 +1078,20 @@
     </div>
 
   </div>
+
+  <div class="citedby-block fade-up">
+    <div class="citedby-head">
+      <h3>Cited <span>By</span></h3>
+      <span class="citedby-sub">The most influential papers that build on my publications, ranked by their own citation count.</span>
+    </div>
+    <div class="citedby-grid" id="citedbyGrid">
+      <div class="cb-skel"></div>
+      <div class="cb-skel"></div>
+      <div class="cb-skel"></div>
+    </div>
+    <p class="cb-state" id="citedbyState" style="display:none;"></p>
+  </div>
+
 </div>
 <hr class="section-divider">
 
@@ -1530,6 +1633,23 @@
   </div>
 </div>
 
+<hr class="section-divider">
+
+<section id="comments">
+  <div class="comments-head fade-up">
+    <p class="section-label" style="margin-bottom:0.5rem;">Guestbook</p>
+    <h2>Notes &amp; <span>Comments</span></h2>
+    <p class="comments-intro">Leave a note, a question, or a thought on my work. Comments are powered by GitHub Discussions, so a free GitHub sign-in keeps the conversation spam-free and public.</p>
+  </div>
+  <div class="giscus-shell fade-up">
+    <!-- giscus -->
+    <div class="giscus"></div>
+    <noscript><p class="comments-fallback">Comments require JavaScript. You can also reach me any time via the links above.</p></noscript>
+    <!-- Until giscus is configured, this fallback shows. See setup note delivered with this build. -->
+    <p class="comments-fallback" id="giscusFallback">Loading comments… If nothing appears, the guestbook is still being set up — feel free to <a href="mailto:alemuta@hotmail.com">email me</a> in the meantime.</p>
+  </div>
+</section>
+
 <footer>
   <span>© 2025 Alemu Takele Assefa, PhD &mdash; Turnhout, Belgium</span>
   <span>
@@ -1543,6 +1663,233 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- ===== Expertise Map: force-directed knowledge graph ===== -->
+<script>
+(function(){
+  const svg = document.getElementById('kgSvg');
+  if(!svg) return;
+  const gEdges = document.getElementById('kgEdges');
+  const gNodes = document.getElementById('kgNodes');
+  const card = document.getElementById('kgCard');
+  const tip  = document.getElementById('kgTip');
+  const W = 920, H = 470, CX = W/2, CY = H/2;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const NODES = [
+    {id:'core', t:'core', label:'A. T. Assefa', tip:'Senior Principal Scientist in Biostatistics — turning computational biology into drug-discovery decisions.'},
+    {id:'spatial', t:'domain', label:'Spatial Transcriptomics', tip:'Mapping gene expression in tissue context to characterise the tumour microenvironment.'},
+    {id:'scrna', t:'domain', label:'Single-cell', tip:'Single-cell transcriptomics: resolving cell-type composition and state.'},
+    {id:'multi', t:'domain', label:'Multi-omics', tip:'Integrating transcriptomic, genomic and imaging layers of evidence.'},
+    {id:'biostat', t:'domain', label:'Biostatistics', tip:'Statistical methodology for high-dimensional genomic experiments.'},
+    {id:'drug', t:'domain', label:'Drug Discovery', tip:'Target identification & prioritisation for cancer immunotherapy.'},
+    {id:'ai', t:'domain', label:'AI / ML', tip:'Predictive modelling and AI infrastructure for target discovery.'},
+    {id:'rsoft', t:'domain', label:'R Software', tip:'Open-source R packages and interactive Shiny applications.'},
+    {id:'voomclr', t:'tool', label:'voomCLR', tip:'Differential cell-composition analysis for single-cell studies (Bioinformatics, 2025).'},
+    {id:'spsim', t:'tool', label:'SPsimSeq', tip:'Semi-parametric simulation of bulk & single-cell RNA-seq data (Bioinformatics, 2020).'},
+    {id:'pimseq', t:'tool', label:'PIMseq', tip:'Probabilistic-index models for differential expression analysis.'},
+    {id:'shiny', t:'tool', label:'R Shiny', tip:'Interactive web tools for exploring omics results.'},
+    {id:'tme', t:'topic', label:'Tumour Microenv.', tip:'The cellular ecosystem around a tumour — a key driver of immunotherapy response.'},
+    {id:'target', t:'topic', label:'Target Prioritisation', tip:'Ranking candidate drug targets from multi-omics evidence.'},
+    {id:'comp', t:'topic', label:'Cell Composition', tip:'Quantifying shifts in cell-type proportions across conditions.'},
+    {id:'de', t:'topic', label:'Differential Expression', tip:'Detecting genes that change between biological conditions.'},
+    {id:'design', t:'topic', label:'Experimental Design', tip:'Power, pooling and cost-optimisation for sequencing studies.'},
+    {id:'hci', t:'topic', label:'High-Content Imaging', tip:'Automated quality control for image-based drug screens.'},
+    {id:'immuno', t:'topic', label:'Immunotherapy', tip:'Harnessing the immune system against tumours.'}
+  ];
+  const LINKS = [
+    ['core','spatial'],['core','scrna'],['core','multi'],['core','biostat'],['core','drug'],['core','ai'],['core','rsoft'],
+    ['spatial','tme'],['spatial','target'],['spatial','immuno'],
+    ['scrna','comp'],['scrna','voomclr'],['scrna','de'],
+    ['multi','target'],['multi','de'],
+    ['biostat','de'],['biostat','design'],['biostat','spsim'],['biostat','pimseq'],
+    ['drug','target'],['drug','immuno'],['drug','hci'],
+    ['ai','target'],
+    ['rsoft','voomclr'],['rsoft','spsim'],['rsoft','pimseq'],['rsoft','shiny'],
+    ['voomclr','comp']
+  ];
+  const RAD = {core:30, domain:21, tool:16, topic:14};
+  const idx = {};
+  NODES.forEach((n,i)=>{ n.x = CX + (Math.random()-0.5)*340; n.y = CY + (Math.random()-0.5)*230; n.vx=0; n.vy=0; n.r=RAD[n.t]; idx[n.id]=n; });
+  idx.core.x = CX; idx.core.y = CY;
+  const edges = LINKS.map(([a,b])=>({s:idx[a], t:idx[b]}));
+  const adj = {}; NODES.forEach(n=>adj[n.id]=new Set());
+  edges.forEach(e=>{ adj[e.s.id].add(e.t.id); adj[e.t.id].add(e.s.id); });
+
+  function springLen(e){ if(e.s.id==='core'||e.t.id==='core') return 150; if(e.s.t==='domain'&&e.t.t==='domain') return 130; return 92; }
+
+  function step(alpha){
+    // repulsion
+    for(let i=0;i<NODES.length;i++){ for(let j=i+1;j<NODES.length;j++){
+      const a=NODES[i], b=NODES[j];
+      let dx=a.x-b.x, dy=a.y-b.y; let d2=dx*dx+dy*dy||0.01; let d=Math.sqrt(d2);
+      const rep = (2600/ d2) * alpha;
+      const fx=dx/d*rep, fy=dy/d*rep;
+      a.vx+=fx; a.vy+=fy; b.vx-=fx; b.vy-=fy;
+    }}
+    // springs
+    edges.forEach(e=>{
+      let dx=e.t.x-e.s.x, dy=e.t.y-e.s.y; let d=Math.sqrt(dx*dx+dy*dy)||0.01;
+      const k=(d-springLen(e))*0.035*alpha; const fx=dx/d*k, fy=dy/d*k;
+      e.s.vx+=fx; e.s.vy+=fy; e.t.vx-=fx; e.t.vy-=fy;
+    });
+    // centering
+    NODES.forEach(n=>{ n.vx += (CX-n.x)*0.004*alpha; n.vy += (CY-n.y)*0.005*alpha; });
+    // integrate
+    NODES.forEach(n=>{
+      if(n.fixed){ n.vx=0; n.vy=0; return; }
+      n.vx*=0.86; n.vy*=0.86;
+      n.x += Math.max(-12,Math.min(12,n.vx));
+      n.y += Math.max(-12,Math.min(12,n.vy));
+      const m=n.r+6;
+      n.x = Math.max(m, Math.min(W-m, n.x));
+      n.y = Math.max(m, Math.min(H-m, n.y));
+    });
+    idx.core.x += (CX-idx.core.x)*0.12; idx.core.y += (CY-idx.core.y)*0.12;
+  }
+  for(let i=0;i<420;i++){ step(1 - i/460); }
+
+  // render
+  const SVGNS='http://www.w3.org/2000/svg';
+  const edgeEls = edges.map(e=>{
+    const l=document.createElementNS(SVGNS,'line');
+    l.setAttribute('class','kg-edge');
+    l.dataset.s=e.s.id; l.dataset.t=e.t.id;
+    gEdges.appendChild(l); return {el:l, e:e};
+  });
+  function wrap(label){ if(label.length<=10 || label.indexOf(' ')<0) return [label]; const p=label.split(' '); if(p.length===2) return p; const mid=Math.ceil(p.length/2); return [p.slice(0,mid).join(' '), p.slice(mid).join(' ')]; }
+  const nodeEls = NODES.map(n=>{
+    const g=document.createElementNS(SVGNS,'g'); g.setAttribute('class','kg-node '+n.t); g.setAttribute('tabindex','0'); g.dataset.id=n.id;
+    const c=document.createElementNS(SVGNS,'circle'); c.setAttribute('r',n.r);
+    g.appendChild(c);
+    const fs = n.t==='core'?13 : n.t==='domain'?10.5 : n.t==='tool'?9.5 : 9;
+    const lines=wrap(n.label); const t=document.createElementNS(SVGNS,'text');
+    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size',fs);
+    lines.forEach((ln,i)=>{ const ts=document.createElementNS(SVGNS,'tspan'); ts.setAttribute('x',0); ts.setAttribute('dy', i===0 ? (lines.length>1?'-0.1em':'0.32em') : '1.05em'); ts.textContent=ln; t.appendChild(ts); });
+    g.appendChild(t);
+    gNodes.appendChild(g); return {el:g, c:c, t:t, n:n};
+  });
+  function place(){
+    edgeEls.forEach(o=>{ o.el.setAttribute('x1',o.e.s.x); o.el.setAttribute('y1',o.e.s.y); o.el.setAttribute('x2',o.e.t.x); o.el.setAttribute('y2',o.e.t.y); });
+    nodeEls.forEach(o=>{ o.el.setAttribute('transform','translate('+o.n.x.toFixed(1)+','+o.n.y.toFixed(1)+')'); });
+  }
+  place();
+
+  // interaction
+  function highlight(id){
+    svg.classList.add('dim');
+    nodeEls.forEach(o=>o.el.classList.toggle('active', o.n.id===id || adj[id].has(o.n.id)));
+    edgeEls.forEach(o=>o.el.classList.toggle('hot', o.e.s.id===id || o.e.t.id===id));
+    const n=idx[id];
+    const r=svg.getBoundingClientRect(), cr=card.getBoundingClientRect();
+    const sx=r.width/W, sy=r.height/H;
+    let px=(r.left-cr.left)+n.x*sx, py=(r.top-cr.top)+n.y*sy;
+    tip.innerHTML='<strong>'+n.label+'</strong><small>'+n.tip+'</small>';
+    tip.style.left=Math.max(8,Math.min(cr.width-238, px+14))+'px';
+    tip.style.top=Math.max(8, py-10)+'px';
+    tip.classList.add('show');
+  }
+  function clear(){ svg.classList.remove('dim'); nodeEls.forEach(o=>o.el.classList.remove('active')); edgeEls.forEach(o=>o.el.classList.remove('hot')); tip.classList.remove('show'); }
+
+  let dragging=null;
+  nodeEls.forEach(o=>{
+    o.el.addEventListener('pointerenter', ()=>{ if(!dragging) highlight(o.n.id); });
+    o.el.addEventListener('pointerleave', ()=>{ if(!dragging) clear(); });
+    o.el.addEventListener('focus', ()=>highlight(o.n.id));
+    o.el.addEventListener('blur', clear);
+    o.el.addEventListener('pointerdown', ev=>{ dragging=o; o.n.fixed=true; o.el.setPointerCapture(ev.pointerId); highlight(o.n.id); ev.preventDefault(); });
+  });
+  svg.addEventListener('pointermove', ev=>{
+    if(!dragging) return;
+    const r=svg.getBoundingClientRect();
+    dragging.n.x = (ev.clientX-r.left)/r.width*W;
+    dragging.n.y = (ev.clientY-r.top)/r.height*H;
+    if(reduce) place();
+  });
+  function endDrag(){ if(dragging){ dragging.n.fixed=false; dragging=null; clear(); } }
+  svg.addEventListener('pointerup', endDrag);
+  svg.addEventListener('pointercancel', endDrag);
+
+  if(!reduce){
+    function loop(){ step(0.06); place(); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+  }
+})();
+</script>
+
+<!-- ===== Cited By: top works citing my publications (OpenAlex, no key) ===== -->
+<script>
+(async function(){
+  const grid = document.getElementById('citedbyGrid');
+  const stateEl = document.getElementById('citedbyState');
+  if(!grid) return;
+  const ORCID='0000-0002-7773-0621', MAILTO='alemuta@hotmail.com', API='https://api.openalex.org';
+  const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const setState = (msg) => { grid.innerHTML=''; stateEl.style.display='block'; stateEl.innerHTML=msg; };
+  try{
+    const wr = await fetch(`${API}/works?filter=author.orcid:${ORCID}&per-page=50&select=id&mailto=${MAILTO}`);
+    if(!wr.ok) throw 0;
+    const wd = await wr.json();
+    const ids = (wd.results||[]).map(w => (w.id||'').replace('https://openalex.org/','')).filter(Boolean).slice(0,50);
+    if(!ids.length){ setState('Citation data is still being indexed — please check back soon.'); return; }
+    const cr = await fetch(`${API}/works?filter=cites:${ids.join('|')}&sort=cited_by_count:desc&per-page=6&select=id,title,publication_year,cited_by_count,authorships,primary_location,doi&mailto=${MAILTO}`);
+    if(!cr.ok) throw 0;
+    const cd = await cr.json();
+    const items = (cd.results||[]).filter(w => w.title && (w.cited_by_count||0) > 0);
+    if(!items.length){ setState('No citing works are indexed yet — this list will populate automatically as citations accrue.'); return; }
+    grid.innerHTML = items.map((w,i) => {
+      const auth = (w.authorships||[]).map(a => a.author && a.author.display_name).filter(Boolean);
+      const authStr = auth.length>3 ? auth.slice(0,3).join(', ')+' et al.' : auth.join(', ');
+      const venue = w.primary_location && w.primary_location.source && w.primary_location.source.display_name;
+      const url = w.doi || w.id;
+      return `<a class="cited-card" href="${url}" target="_blank" rel="noopener">
+        <div class="cited-rank">${i+1}</div>
+        <div>
+          <div class="cited-title">${esc(w.title)}</div>
+          <div class="cited-meta"><em>${esc(authStr)||'—'}</em>${w.publication_year ? ' · '+w.publication_year : ''}</div>
+          <div class="cited-tags">
+            <span class="cited-cites">${(w.cited_by_count||0).toLocaleString()} citations</span>
+            ${venue ? `<span class="cited-venue">${esc(venue)}</span>` : ''}
+          </div>
+        </div></a>`;
+    }).join('');
+  }catch(e){
+    setState('Live citation data is momentarily unavailable. View the full record on <a href="https://scholar.google.com/citations?user=g3t1XR0AAAAJ" target="_blank" style="color:var(--teal-light)">Google Scholar</a>.');
+  }
+})();
+</script>
+
+<!-- ===== Visitor comments (giscus / GitHub Discussions) ===== -->
+<script>
+(function(){
+  // After enabling Discussions + installing the giscus app, paste the two IDs from giscus.app below.
+  const GISCUS = {
+    repo: 'AlemuTA/AlemuTA.github.io',
+    repoId: 'R_kgDOSHDilw',
+    category: 'General',
+    categoryId: 'DIC_kwDOSHDil84C_nOK'
+  };
+  const host = document.querySelector('#comments .giscus');
+  const fallback = document.getElementById('giscusFallback');
+  if(!host) return;
+  if(GISCUS.repoId.indexOf('PASTE')===0 || GISCUS.categoryId.indexOf('PASTE')===0){
+    if(fallback) fallback.innerHTML = 'The guestbook is being set up. In the meantime, reach me via <a href="mailto:alemuta@hotmail.com">email</a> or <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank">LinkedIn</a>.';
+    return;
+  }
+  const s = document.createElement('script');
+  s.src = 'https://giscus.app/client.js';
+  const attrs = {
+    'data-repo': GISCUS.repo, 'data-repo-id': GISCUS.repoId,
+    'data-category': GISCUS.category, 'data-category-id': GISCUS.categoryId,
+    'data-mapping':'pathname', 'data-strict':'0', 'data-reactions-enabled':'1',
+    'data-emit-metadata':'0', 'data-input-position':'top', 'data-theme':'dark_dimmed', 'data-lang':'en'
+  };
+  Object.entries(attrs).forEach(([k,v])=>s.setAttribute(k,v));
+  s.crossOrigin='anonymous'; s.async=true;
+  if(fallback) fallback.style.display='none';
+  host.appendChild(s);
+})();
 </script>
 </body>
 </html>
