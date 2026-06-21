@@ -477,14 +477,7 @@
   .cv-pub .cv-pub-v { color: #6b7480; font-style: italic; }
   .cv-empty-note { font-size: 0.8rem; color: var(--text-muted); padding: 0.6rem 0; }
   @media (max-width: 600px) { .cv-two { grid-template-columns: 1fr; } .cv-sheet { padding: 1.5rem 1.4rem; } .cv-modal-body { padding: 1.2rem 1.1rem 1.5rem; } .cv-modal-head { padding: 1.2rem 1.1rem 1rem; } }
-  @media print {
-    body * { visibility: hidden !important; }
-    #cvPrintArea, #cvPrintArea * { visibility: visible !important; }
-    #cvPrintArea { position: absolute; left: 0; top: 0; width: 100%; }
-    .cv-sheet { border-radius: 0; box-shadow: none; padding: 0.4in 0.5in; }
-    .cv-focus { display: none !important; }
-    @page { margin: 0.5in; }
-  }
+  /* CV printing is handled via an isolated iframe (see printCV), so no modal-based @media print rules are needed here. */
 </style>
 </head>
 <body>
@@ -2130,12 +2123,69 @@ function generateCV(){
   document.getElementById('cvResult').classList.add('show');
   document.getElementById('cvResult').scrollIntoView({behavior:'smooth', block:'start'});
 }
+function cvPrintStyles(){
+  return `
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;background:#fff;color:#1a1f26;font-family:'Inter',Arial,sans-serif;}
+  .cv-sheet{padding:0.2in 0.1in;}
+  .cv-sheet h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;color:#11202e;margin:0 0 2px;font-weight:600;}
+  .cv-role{font-size:13px;color:#1d9e75;font-weight:600;margin-bottom:5px;}
+  .cv-contact{font-size:10.5px;color:#5a6470;margin-bottom:14px;}
+  h2{font-family:'Inter',Arial,sans-serif;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:#1d9e75;border-bottom:1.5px solid #d8dde2;padding-bottom:4px;margin:18px 0 9px;}
+  .cv-summary{font-size:11.5px;line-height:1.55;color:#2a323c;}
+  .cv-xp{margin-bottom:12px;page-break-inside:avoid;break-inside:avoid;}
+  .cv-xp-head{display:flex;justify-content:space-between;gap:14px;align-items:baseline;}
+  .cv-xp-role{font-size:12.5px;font-weight:600;color:#16202b;}
+  .cv-xp-org{font-size:11.5px;color:#45505c;}
+  .cv-xp-period{font-size:10.5px;color:#7a838f;white-space:nowrap;}
+  .cv-xp ul{margin:5px 0 0;padding-left:16px;}
+  .cv-xp li{font-size:11.5px;line-height:1.5;color:#2a323c;margin-bottom:3px;}
+  .cv-xp li.cv-top::marker{color:#1d9e75;}
+  .cv-two{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;}
+  .cv-skill-line{font-size:11.5px;color:#2a323c;margin-bottom:4px;}
+  .cv-skill-line b{color:#16202b;}
+  .cv-pub{font-size:11px;line-height:1.45;color:#2a323c;margin-bottom:7px;page-break-inside:avoid;break-inside:avoid;}
+  .cv-pub-t{color:#11202e;font-weight:500;}
+  .cv-pub-v{color:#6b7480;font-style:italic;}
+  .cv-focus{display:none;}
+  @page{margin:0.5in;}
+  `;
+}
 function printCV(mode){
   const tags = mode==='tailored' ? cvJDTags(document.getElementById('cvJD').value) : new Set();
-  if(mode==='tailored' && !document.getElementById('cvResult').classList.contains('show')) generateCV();
-  else document.getElementById('cvPrintArea').innerHTML = cvSheet(tags);
-  if(mode==='full'){ document.getElementById('cvFocus').innerHTML=''; document.getElementById('cvResult').classList.add('show'); }
-  setTimeout(()=>window.print(), 120);
+  // keep the on-screen preview in sync (so the modal shows what will print)
+  if(mode==='tailored'){
+    if(!document.getElementById('cvResult').classList.contains('show')) generateCV();
+  } else {
+    document.getElementById('cvFocus').innerHTML='';
+    document.getElementById('cvPrintArea').innerHTML = cvSheet(tags);
+    document.getElementById('cvResult').classList.add('show');
+  }
+  // Print from an isolated iframe so the fixed-position modal can't cause repeated pages
+  const html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Alemu Takele Assefa — CV</title>'
+    + '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    + '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">'
+    + '<style>' + cvPrintStyles() + '</style></head><body>' + cvSheet(tags) + '</body></html>';
+  const ifr = document.createElement('iframe');
+  ifr.setAttribute('aria-hidden','true');
+  ifr.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+  document.body.appendChild(ifr);
+  const w = ifr.contentWindow;
+  w.document.open(); w.document.write(html); w.document.close();
+  let done = false;
+  const fire = () => {
+    if(done) return; done = true;
+    try { w.focus(); w.print(); } catch(e){}
+    setTimeout(()=>{ try{ ifr.remove(); }catch(e){} }, 1500);
+  };
+  // give fonts a moment to load for an accurate render
+  if (w.document.fonts && w.document.fonts.ready) {
+    w.document.fonts.ready.then(()=>setTimeout(fire, 150));
+    setTimeout(fire, 1500); // fallback if fonts hang
+  } else {
+    ifr.onload = () => setTimeout(fire, 400);
+    setTimeout(fire, 1500);
+  }
 }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCV(); });
 document.getElementById('cvOverlay').addEventListener('click', e=>{ if(e.target.id==='cvOverlay') closeCV(); });
