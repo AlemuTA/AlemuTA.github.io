@@ -187,6 +187,10 @@
   .profile-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--cream); margin-bottom: 0.15rem; }
   .profile-role { font-size: 0.77rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; }
   .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .metric-source { display: none; font-size: 0.64rem; line-height: 1.5; color: var(--text-muted); opacity: 0.65; margin: -0.9rem 0 1.3rem; }
+  .metric-source a { color: var(--teal-light); text-decoration: none; }
+  .metric-source a:hover { text-decoration: underline; }
+  .foot-updated { opacity: 0.75; }
   .stat { background: rgba(29,158,117,0.06); border: 1px solid rgba(29,158,117,0.15); border-radius: 8px; padding: 0.7rem 0.8rem; }
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 400; color: var(--teal-light); line-height: 1; }
   .stat-lbl { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 0.15rem; }
@@ -298,6 +302,40 @@
   .contact-card.orcid:hover { border-color: rgba(166,206,57,0.5); color: #a6ce39; background: rgba(166,206,57,0.07); }
   .contact-card.github:hover { border-color: rgba(255,255,255,0.35); color: #ddd; background: rgba(255,255,255,0.06); }
 
+  /* CONTACT FORM */
+  .contact-form-wrap { max-width: 620px; margin: 0 auto 2.75rem; text-align: left; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 1.9rem; }
+  .contact-form-wrap h3 { font-size: 1.1rem; color: var(--cream); margin-bottom: 0.4rem; }
+  .contact-form-lead { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.6rem; }
+  .contact-form-lead a { color: var(--teal-light); text-decoration: none; border-bottom: 1px solid rgba(93,202,165,0.35); }
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .cf-field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.9rem; }
+  .cf-field label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+  .cf-field label .req { color: var(--teal-light); }
+  .cf-field input, .cf-field select, .cf-field textarea {
+    width: 100%; background: rgba(13,27,42,0.55); border: 1px solid var(--border); border-radius: 6px;
+    padding: 0.65rem 0.8rem; color: var(--text-main); font-family: inherit; font-size: 0.88rem;
+    transition: border-color 0.2s, background 0.2s; -webkit-appearance: none; appearance: none;
+  }
+  .cf-field select { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239babb8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.7rem center; background-size: 16px; padding-right: 2.2rem; }
+  .cf-field select option { background: var(--navy-mid); color: var(--text-main); }
+  .cf-field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  .cf-field input::placeholder, .cf-field textarea::placeholder { color: #6b7a88; }
+  .cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { outline: none; border-color: var(--teal); background: rgba(29,158,117,0.06); }
+  .cf-field input:user-invalid, .cf-field textarea:user-invalid { border-color: rgba(214,97,97,0.6); }
+  .cf-hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+  .cf-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.4rem; }
+  .cf-submit { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; font-family: inherit; cursor: pointer; background: var(--teal); color: #fff; border: 1px solid var(--teal); transition: all 0.2s; }
+  .cf-submit:hover:not(:disabled) { background: var(--teal-light); border-color: var(--teal-light); }
+  .cf-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+  .cf-submit svg { width: 15px; height: 15px; }
+  .cf-note { font-size: 0.72rem; color: var(--text-muted); opacity: 0.8; }
+  .cf-status { margin-top: 1rem; font-size: 0.84rem; line-height: 1.65; border-radius: 6px; padding: 0.75rem 0.9rem; display: none; }
+  .cf-status.show { display: block; }
+  .cf-status.ok { background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.4); color: var(--teal-light); }
+  .cf-status.err { background: rgba(214,97,97,0.08); border: 1px solid rgba(214,97,97,0.45); color: #e79a9a; }
+  .cf-status a { color: inherit; font-weight: 500; }
+  .contact-alt-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+
   /* FOOTER */
   footer { background: var(--navy); border-top: 1px solid var(--border); padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.73rem; color: var(--text-muted); }
   footer a { color: var(--text-muted); text-decoration: none; }
@@ -404,6 +442,8 @@
     .conf-item { grid-template-columns: 50px 1fr; }
     .conf-loc { display: none; }
     #contact { padding: 4rem 1.5rem; }
+    .contact-form-wrap { padding: 1.5rem 1.2rem; }
+    .cf-row { grid-template-columns: 1fr; gap: 0; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 
@@ -569,11 +609,11 @@
       <p class="eyebrow">Senior Principal Scientist in Biostatistics · PhD</p>
       <h1>Alemu Takele, <em>Assefa</em></h1>
       <span class="hero-subtitle">Biostatistics &amp; Computational Biology</span>
-      <p class="hero-bio">Senior Principal Scientist in Biostatistics at Johnson &amp; Johnson Innovative Medicine with over six years of industry experience and a PhD from Ghent University. I design and deploy end-to-end data science solutions — spanning multi-omics analysis, predictive modelling, machine learning, AI infrastructure, R Shiny web tools, and R software packages — to accelerate cancer immunotherapy drug discovery. Author of 12+ peer-reviewed publications with 390+ citations in <em>Bioinformatics</em>, <em>Genome Biology</em>, and <em>BMC Genomics</em>.</p>
+      <p class="hero-bio">Senior Principal Scientist in Biostatistics at Johnson &amp; Johnson Innovative Medicine with over six years of industry experience and a PhD from Ghent University. I design and deploy end-to-end data science solutions — spanning multi-omics analysis, predictive modelling, machine learning, AI infrastructure, R Shiny web tools, and R software packages — to accelerate cancer immunotherapy drug discovery. Author of <span data-metric="works">12+</span> peer-reviewed publications with <span data-metric="cites">390+</span> citations in <em>Bioinformatics</em>, <em>Genome Biology</em>, and <em>BMC Genomics</em>.</p>
       <div class="hero-cta">
         <a href="#publications" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>View Publications</a>
         <button type="button" class="btn btn-outline" onclick="openCV()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download / Tailor CV</button>
-        <a href="mailto:alemuta@hotmail.com" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>Get in Touch</a>
+        <a href="#contact" class="btn btn-outline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>Get in Touch</a>
       </div>
       <!-- Social strip -->
       <div class="hero-social">
@@ -609,10 +649,11 @@
       <p class="profile-name">Alemu Takele Assefa, PhD</p>
       <p class="profile-role">Senior Principal Scientist in Biostatistics<br>Johnson &amp; Johnson Innovative Medicine · Beerse, Belgium</p>
       <div class="stat-row">
-        <div class="stat"><div class="stat-num">390+</div><div class="stat-lbl">Citations</div></div>
-        <div class="stat"><div class="stat-num">12+</div><div class="stat-lbl">Publications</div></div>
-        <div class="stat"><div class="stat-num">6+</div><div class="stat-lbl">Yrs Industry</div></div>
+        <div class="stat"><div class="stat-num" data-metric="cites">390+</div><div class="stat-lbl">Citations</div></div>
+        <div class="stat"><div class="stat-num" data-metric="works">12+</div><div class="stat-lbl">Publications</div></div>
+        <div class="stat"><div class="stat-num" data-metric="years">6+</div><div class="stat-lbl">Yrs Industry</div></div>
       </div>
+      <p class="metric-source" id="metricSource">Publication &amp; citation counts update automatically via <a href="https://openalex.org/" target="_blank" rel="noopener">OpenAlex</a></p>
       <p style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.5rem;letter-spacing:0.08em;">ORCID</p>
       <a href="https://orcid.org/0000-0002-7773-0621" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--teal-light);text-decoration:none;">0000-0002-7773-0621</a>
     </div>
@@ -768,7 +809,7 @@
       <p>I am a Senior Principal Scientist in Biostatistics at Johnson &amp; Johnson Innovative Medicine, where I have progressed through four successive roles since December 2019. My academic foundation — a PhD in Statistical Data Analysis from Ghent University (2016–2020), an MSc in Biostatistics with Distinction from Hasselt University, and a BSc in Statistics &amp; Computer Science with a perfect GPA from Aksum University — has equipped me with deep, cross-disciplinary expertise that bridges statistical theory, computational biology, and applied data science.</p>
       <p>My technical repertoire spans the full modern data science stack for biomedical research. In <strong style="color:var(--cream)">multi-omics analysis</strong>, I integrate signals across bulk and single-cell transcriptomics, spatial transcriptomics, proteomics, flow cytometry, CyTOF, and high-content cell imaging to uncover biologically meaningful insights. I apply <strong style="color:var(--cream)">predictive modelling and machine learning</strong> tools for biomarker discovery, dose–response characterisation, and compound screening, and have built <strong style="color:var(--cream)">AI infrastructure</strong> leveraging large language models for automated, data-driven target identification in oncology. I author and maintain <strong style="color:var(--cream)">R software packages</strong> and engineer <strong style="color:var(--cream)">R Shiny web applications</strong> and interactive dashboards that automate complex analytical pipelines and deliver results to scientific stakeholders at scale.</p>
       <p>Alongside the technical work, I lead. I head a <strong style="color:var(--cream)">team of single-cell RNA-seq experts</strong> delivering portfolio-level programs on tumour target identification and biomarker discovery, setting the analytical strategy and owning delivery to program stakeholders. I have also founded and led <strong style="color:var(--cream)">two research internship programs</strong> — the first (2023) building an integrated modelling and visualisation framework for in-vitro efficacy and safety endpoints spanning cytotoxicity, T-cell activation and cytokine release; the second (2026, ongoing) benchmarking best practice for cell-label transfer between single-cell and spatial transcriptomics. In both, I defined the scientific scope, mentored the interns, and steered the work from concept to delivered result.</p>
-      <p>This breadth of expertise is validated by over ten peer-reviewed publications cited more than 321 times in journals including <em style="color:var(--gold-light)">Bioinformatics</em>, <em style="color:var(--gold-light)">Genome Biology</em>, <em style="color:var(--gold-light)">BMC Genomics</em>, and <em style="color:var(--gold-light)">SLAS Discovery</em>, alongside seven invited presentations at international conferences across Europe and North America.</p>
+      <p>This breadth of expertise is validated by <span data-metric="works">12+</span> peer-reviewed publications cited <span data-metric="cites">390+</span> times in journals including <em style="color:var(--gold-light)">Bioinformatics</em>, <em style="color:var(--gold-light)">Genome Biology</em>, <em style="color:var(--gold-light)">BMC Genomics</em>, and <em style="color:var(--gold-light)">SLAS Discovery</em>, alongside seven invited presentations at international conferences across Europe and North America.</p>
     </div>
     <div>
       <p class="section-label" style="margin-bottom:1.1rem;">Core Domains</p>
@@ -930,11 +971,75 @@
           <li>Integrated LLM-based AI to support target identification for immunotherapy antibody design in oncology.</li>
           <li>Developed a database integrating pre-clinical and clinical drug discovery data to assist translation of in-vitro and in-vivo findings for safety and efficacy prediction in clinical trials.</li>
           <li>Automated image analysis for Colony Formation Unit (CFU) counting from clonogenic assays for drug screening.</li>
-          <li>Developed the R package <strong>voomCLR</strong> for differential cell composition analysis of single-cell experiments (scRNA-seq, flow cytometry, CyTOF).</li>
+          <li>Developed the methodological framework behind the R package <strong>voomCLR</strong> and validated it through a simulation study, enabling differential cell composition analysis of single-cell experiments (scRNA-seq, flow cytometry, CyTOF).</li>
           <li>Developed automated positive-control-based quality assessment of high-content image cell phenotype data for compound screening.</li>
           <li>Automated a metric for optimization of bi-specific antibody design for cancer immunotherapy using scRNA-seq.</li>
           <li>Improved methodology for immune cells' polyfunctionality detection using the polyfunctionality strength index (PSI) from flow cytometry.</li>
           <li>Developed pipelines for differential gene expression analysis of scRNA-seq data from complex experimental designs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-meta">
+        <div class="tl-period">Feb 2016 — Dec 2020</div>
+        <div class="tl-loc">Ghent, Belgium</div>
+      </div>
+      <div>
+        <!-- Ghent illustration: transcriptomics / methodology research theme -->
+        <div class="tl-illustration">
+          <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gGhe" cx="35%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#1d9e75" stop-opacity="0.09"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="560" height="110" fill="url(#gGhe)"/>
+            <!-- Volcano plot left -->
+            <g transform="translate(30,15)" opacity="0.7">
+              <text x="0" y="9" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">DIFFERENTIAL EXPRESSION</text>
+              <line x1="0" y1="78" x2="150" y2="78" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+              <line x1="75" y1="16" x2="75" y2="78" stroke="#9babb8" stroke-width="0.5" opacity="0.25" stroke-dasharray="3 2"/>
+              <circle cx="70" cy="70" r="2" fill="#9babb8" opacity="0.5"/><circle cx="80" cy="72" r="2" fill="#9babb8" opacity="0.5"/>
+              <circle cx="62" cy="66" r="2" fill="#9babb8" opacity="0.5"/><circle cx="88" cy="64" r="2" fill="#9babb8" opacity="0.5"/>
+              <circle cx="55" cy="60" r="2" fill="#9babb8" opacity="0.4"/><circle cx="95" cy="58" r="2" fill="#9babb8" opacity="0.4"/>
+              <circle cx="30" cy="40" r="2.6" fill="#5dcaa5"/><circle cx="22" cy="32" r="2.6" fill="#5dcaa5"/>
+              <circle cx="14" cy="26" r="2.6" fill="#1d9e75"/><circle cx="36" cy="48" r="2.4" fill="#5dcaa5" opacity="0.8"/>
+              <circle cx="120" cy="38" r="2.6" fill="#c9a84c"/><circle cx="128" cy="30" r="2.6" fill="#c9a84c"/>
+              <circle cx="136" cy="24" r="2.6" fill="#e4c97e"/><circle cx="113" cy="46" r="2.4" fill="#c9a84c" opacity="0.8"/>
+            </g>
+            <!-- Simulation / density curves center -->
+            <g transform="translate(225,22)" opacity="0.6">
+              <text x="0" y="4" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">SEMI-PARAMETRIC SIMULATION</text>
+              <path d="M0,66 C18,66 22,20 40,20 C58,20 62,66 80,66" stroke="#1d9e75" stroke-width="1.6" fill="none"/>
+              <path d="M12,66 C30,66 34,30 52,30 C70,30 74,66 92,66" stroke="#5dcaa5" stroke-width="1.2" fill="none" stroke-dasharray="4 3" opacity="0.75"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+            </g>
+            <!-- Single cell / clustering right -->
+            <g transform="translate(410,26)" opacity="0.6">
+              <text x="0" y="0" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">SINGLE-CELL CLUSTERS</text>
+              <circle cx="22" cy="24" r="3" fill="#1d9e75"/><circle cx="30" cy="18" r="3" fill="#1d9e75"/>
+              <circle cx="16" cy="17" r="3" fill="#1d9e75"/><circle cx="26" cy="31" r="3" fill="#1d9e75" opacity="0.7"/>
+              <circle cx="72" cy="26" r="3" fill="#c9a84c"/><circle cx="80" cy="19" r="3" fill="#c9a84c"/>
+              <circle cx="66" cy="18" r="3" fill="#c9a84c" opacity="0.75"/>
+              <circle cx="48" cy="50" r="3" fill="#5dcaa5"/><circle cx="56" cy="44" r="3" fill="#5dcaa5"/>
+              <circle cx="40" cy="43" r="3" fill="#5dcaa5" opacity="0.75"/>
+              <ellipse cx="23" cy="23" rx="17" ry="14" fill="none" stroke="#1d9e75" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.45"/>
+              <ellipse cx="73" cy="22" rx="15" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.45"/>
+              <ellipse cx="48" cy="46" rx="15" ry="12" fill="none" stroke="#5dcaa5" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.45"/>
+            </g>
+            <text x="28" y="104" font-size="7.5" fill="#1d9e75" font-family="Inter,sans-serif" letter-spacing="1.5" opacity="0.8">GHENT UNIVERSITY · FACULTY OF SCIENCES</text>
+          </svg>
+        </div>
+        <h3 class="tl-title">Doctoral Researcher in Statistical Data Analysis</h3>
+        <p class="tl-company">Faculty of Sciences, Ghent University · Ghent, Belgium</p>
+        <ul class="tl-bullets">
+          <li>Developed novel statistical methods for differential gene expression analysis of bulk and single-cell digital transcriptomics data, published in <em>Genome Biology</em>, <em>Bioinformatics</em> and <em>BMC Genomics</em>.</li>
+          <li>Authored and released the open-source R packages <strong>SPsimSeq</strong> (also on Bioconductor) and <strong>PIMseq</strong>, alongside the <strong>AppDGE</strong> Shiny application.</li>
+          <li>Established optimal experimental designs for RNA-seq studies, including sample pooling strategies that improve statistical power at reduced cost.</li>
+          <li>Teaching assistant for Statistical Genomics; supervised master's thesis students.</li>
+          <li>Thesis defended December 2020, overlapping the first year at Johnson &amp; Johnson.</li>
         </ul>
       </div>
     </div>
@@ -1002,6 +1107,64 @@
         </div>
         <h3 class="tl-title">Lecturer in Biostatistics</h3>
         <p class="tl-company">Institute of Public Health and Epidemiology, University of Gondar</p>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-meta">
+        <div class="tl-period">Oct 2013 — Sep 2015</div>
+        <div class="tl-loc">Hasselt, Belgium · Kampala, Uganda</div>
+      </div>
+      <div>
+        <!-- Hasselt illustration: biostatistics training / longitudinal modelling theme -->
+        <div class="tl-illustration">
+          <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gHas" cx="40%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#5dcaa5" stop-opacity="0.08"/>
+                <stop offset="100%" stop-color="#0d1b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="560" height="110" fill="url(#gHas)"/>
+            <!-- Longitudinal spaghetti plot left -->
+            <g transform="translate(30,15)" opacity="0.7">
+              <text x="0" y="9" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">LONGITUDINAL CD4+ TRAJECTORIES</text>
+              <polyline points="0,68 30,58 60,50 90,42 120,34 150,30" stroke="#1d9e75" stroke-width="1.4" fill="none" opacity="0.8"/>
+              <polyline points="0,72 30,66 60,52 90,50 120,40 150,38" stroke="#5dcaa5" stroke-width="1.2" fill="none" opacity="0.65"/>
+              <polyline points="0,64 30,60 60,58 90,46 120,44 150,26" stroke="#c9a84c" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <polyline points="0,76 30,70 60,64 90,58 120,52 150,46" stroke="#e4c97e" stroke-width="1" fill="none" opacity="0.45" stroke-dasharray="3 2"/>
+              <line x1="0" y1="80" x2="155" y2="80" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+              <line x1="0" y1="18" x2="0" y2="80" stroke="#9babb8" stroke-width="0.5" opacity="0.4"/>
+            </g>
+            <!-- Joint model / linked outcomes center -->
+            <g transform="translate(250,26)" opacity="0.6">
+              <text x="0" y="0" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">JOINT MIXED-EFFECT MODEL</text>
+              <rect x="0" y="12" width="54" height="20" rx="4" fill="none" stroke="#1d9e75" stroke-width="1"/>
+              <text x="27" y="25.5" text-anchor="middle" font-size="7" fill="#5dcaa5" font-family="Inter,sans-serif">CD4+</text>
+              <rect x="0" y="44" width="54" height="20" rx="4" fill="none" stroke="#c9a84c" stroke-width="1"/>
+              <text x="27" y="57.5" text-anchor="middle" font-size="7" fill="#e4c97e" font-family="Inter,sans-serif">Hb</text>
+              <path d="M54,22 C74,22 74,54 54,54" stroke="#9babb8" stroke-width="0.9" fill="none" opacity="0.5" stroke-dasharray="3 2"/>
+              <circle cx="78" cy="38" r="9" fill="none" stroke="#5dcaa5" stroke-width="1" opacity="0.6"/>
+              <text x="78" y="41" text-anchor="middle" font-size="8" fill="#5dcaa5" font-family="Inter,sans-serif">ρ</text>
+            </g>
+            <!-- Survival / ART response right -->
+            <g transform="translate(420,26)" opacity="0.6">
+              <text x="0" y="0" font-size="7.5" fill="#9babb8" font-family="Inter,sans-serif" letter-spacing="1">ART RESPONSE</text>
+              <polyline points="0,58 15,58 15,50 32,50 32,40 50,40 50,30 70,30 70,22 90,22" stroke="#1d9e75" stroke-width="1.4" fill="none"/>
+              <polyline points="0,62 15,62 15,56 32,56 32,50 50,50 50,44 70,44 70,38 90,38" stroke="#c9a84c" stroke-width="1.1" fill="none" opacity="0.7" stroke-dasharray="4 3"/>
+              <line x1="0" y1="66" x2="95" y2="66" stroke="#9babb8" stroke-width="0.5" opacity="0.35"/>
+              <line x1="0" y1="10" x2="0" y2="66" stroke="#9babb8" stroke-width="0.5" opacity="0.35"/>
+            </g>
+            <text x="28" y="104" font-size="7.5" fill="#5dcaa5" font-family="Inter,sans-serif" letter-spacing="1.5" opacity="0.8">HASSELT UNIVERSITY · MILDMAY UGANDA · VLIR-UOS</text>
+          </svg>
+        </div>
+        <h3 class="tl-title">MSc in Biostatistics &amp; VLIR-UOS Research Internship</h3>
+        <p class="tl-company">Data Science Institute, Hasselt University · Mildmay Uganda, Kampala</p>
+        <ul class="tl-bullets">
+          <li>MSc in Biostatistics, graduated <strong>with Distinction</strong> — advanced statistical inference, regression, survival and longitudinal modelling, multivariate techniques and infectious disease modelling.</li>
+          <li><strong>VLIR-UOS scholarship research internship (Summer 2014, Kampala)</strong> — modelled clinical data from HIV-1 patients at Mildmay Uganda, supporting clinicians in the choice of anti-retroviral drug class.</li>
+          <li>Thesis: joint mixed-effect modelling of CD4+ cell counts and haemoglobin concentration for HIV-1 patients on ART.</li>
+        </ul>
       </div>
     </div>
 
@@ -1708,11 +1871,71 @@
       <p style="color:var(--text-main);line-height:1.65;">I am open to senior individual-contributor and leadership opportunities in <strong style="color:var(--cream)">biostatistics, bioinformatics, computational biology and data science</strong> — across pharma, biotech, health-tech and academia. Relevant titles include Director of Computational Biology, Head of Bioinformatics, Principal or Lead Data Scientist, Senior Principal Biostatistician, and Director of Data Science.</p>
       <p style="color:var(--text-muted);line-height:1.65;margin-top:0.6rem;font-size:0.92rem;">I am equally interested in adjacent and unfamiliar territory — new therapeutic areas, new data modalities, or a step further into people and portfolio leadership. If the problem is hard and the data is interesting, I would like to hear about it.</p>
     </div>
-    <p class="contact-intro">I also welcome scientific collaborations, consulting, and conversations around biostatistics, computational biology, and drug discovery data science. Find me on any of the platforms below.</p>
+    <p class="contact-intro">I also welcome scientific collaborations, consulting, and conversations around biostatistics, computational biology, and drug discovery data science. The quickest way to reach me is the form below — it goes straight to my inbox.</p>
+
+    <!-- CONTACT FORM (Web3Forms) -->
+    <div class="contact-form-wrap fade-up">
+      <h3>Send me a message</h3>
+      <p class="contact-form-lead">Messages arrive directly at <a href="mailto:atassefa@alemutakele-assefa.com">atassefa@alemutakele-assefa.com</a>. I usually reply within a couple of days.</p>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms access key: request a free key at https://web3forms.com for atassefa@alemutakele-assefa.com and paste it below -->
+        <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
+        <input type="hidden" name="subject" value="New message from alemutakele-assefa.com">
+        <input type="hidden" name="from_name" value="alemutakele-assefa.com contact form">
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off">
+
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cfName">Your name <span class="req">*</span></label>
+            <input type="text" id="cfName" name="name" required autocomplete="name" placeholder="Jane Doe">
+          </div>
+          <div class="cf-field">
+            <label for="cfEmail">Your email <span class="req">*</span></label>
+            <input type="email" id="cfEmail" name="email" required autocomplete="email" placeholder="jane@institute.org">
+          </div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cfOrg">Organisation</label>
+            <input type="text" id="cfOrg" name="organisation" autocomplete="organization" placeholder="Company or institute">
+          </div>
+          <div class="cf-field">
+            <label for="cfTopic">Topic</label>
+            <select id="cfTopic" name="topic">
+              <option>Role or hiring enquiry</option>
+              <option>Scientific collaboration</option>
+              <option>Consulting or advisory</option>
+              <option>Speaking or teaching</option>
+              <option>Question about a paper or package</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cfMessage">Message <span class="req">*</span></label>
+          <textarea id="cfMessage" name="message" required placeholder="A few lines about what you have in mind…"></textarea>
+        </div>
+        <div class="cf-actions">
+          <button type="submit" class="cf-submit" id="cfSubmit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            <span id="cfSubmitText">Send message</span>
+          </button>
+          <span class="cf-note">Your address is used only to reply. Nothing is stored or shared.</span>
+        </div>
+        <div class="cf-status" id="cfStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <p class="contact-alt-label">Or find me elsewhere</p>
     <div class="contact-grid">
-      <a href="mailto:alemuta@hotmail.com" class="contact-card email">
+      <a href="mailto:atassefa@alemutakele-assefa.com" class="contact-card email">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span>Email</span>
+        <small>atassefa@alemutakele-assefa.com</small>
+      </a>
+      <a href="mailto:alemuta@hotmail.com" class="contact-card email">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span>Alternative email</span>
         <small>alemuta@hotmail.com</small>
       </a>
       <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank" class="contact-card linkedin">
@@ -1728,7 +1951,7 @@
       <a href="https://scholar.google.com/citations?user=g3t1XR0AAAAJ" target="_blank" class="contact-card scholar">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
         <span>Google Scholar</span>
-        <small>390+ citations</small>
+        <small><span data-metric="cites">390+</span> citations</small>
       </a>
       <a href="https://www.researchgate.net/profile/Alemu-Assefa" target="_blank" class="contact-card researchgate">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a12.41 12.41 0 0 0-.35 3.063h-1.49v2.498h1.49v7.752h3.495v-7.752h2.325l.219-2.498h-2.544V5.38c0-.578.116-.977.347-1.186.23-.21.65-.316 1.258-.316h.963V0zM2.762 0l-.547.063A5.055 5.055 0 0 0 0 1.08L0 2.7h1.42c.547 0 .964.142 1.25.424.284.284.426.697.426 1.24V5.38H.873v2.498H3.1v7.752h3.522V7.878h3.003V5.38H6.621V4.48c0-1.452-.357-2.53-1.071-3.233-.715-.702-1.73-1.073-3.045-1.073l-.743-.174z"/></svg>
@@ -1762,12 +1985,12 @@
     <div class="giscus"></div>
     <noscript><p class="comments-fallback">Comments require JavaScript. You can also reach me any time via the links above.</p></noscript>
     <!-- Until giscus is configured, this fallback shows. See setup note delivered with this build. -->
-    <p class="comments-fallback" id="giscusFallback">Loading comments… If nothing appears, the guestbook is still being set up — feel free to <a href="mailto:alemuta@hotmail.com">email me</a> in the meantime.</p>
+    <p class="comments-fallback" id="giscusFallback">Loading comments… If nothing appears, the guestbook is still being set up — feel free to <a href="mailto:atassefa@alemutakele-assefa.com">email me</a> in the meantime.</p>
   </div>
 </section>
 
 <footer>
-  <span>© 2025 Alemu Takele Assefa, PhD &mdash; Turnhout, Belgium</span>
+  <span>© <span id="footYear">2026</span> Alemu Takele Assefa, PhD &mdash; Turnhout, Belgium · <span class="foot-updated">Updated <time id="lastUpdated" datetime="2026-08-14">14 August 2026</time></span></span>
   <span>
     <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank" style="margin-right:1rem;">LinkedIn</a>
     <a href="https://orcid.org/0000-0002-7773-0621" target="_blank">ORCID: 0000-0002-7773-0621</a>
@@ -1934,13 +2157,65 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 })();
 </script>
 
+<!-- ===== Live metrics: publication & citation counts from OpenAlex ===== -->
+<script>
+(async function(){
+  const ORCID = '0000-0002-7773-0621';
+  const MAILTO = 'atassefa@alemutakele-assefa.com';
+  const API = 'https://api.openalex.org';
+  const INDUSTRY_START = new Date('2019-12-01');
+
+  // Years of industry experience — always computed, never stale.
+  const years = Math.floor((Date.now() - INDUSTRY_START.getTime()) / (365.25*24*3600*1000));
+  document.querySelectorAll('[data-metric="years"]').forEach(function(el){ el.textContent = years + '+'; });
+
+  // Footer year + build date
+  const fy = document.getElementById('footYear');
+  if(fy) fy.textContent = new Date().getFullYear();
+
+  // Publication and citation counts, live from OpenAlex.
+  // If the request fails the hardcoded fallbacks already in the HTML stay put.
+  try {
+    const res = await fetch(API + '/works?filter=author.orcid:' + ORCID +
+      '&per-page=200&select=id,cited_by_count,type&mailto=' + MAILTO);
+    if(!res.ok) return;
+    const data = await res.json();
+    const works = data.results || [];
+    if(!works.length) return;
+
+    const total = (data.meta && data.meta.count) || works.length;
+    const cites = works.reduce(function(sum, w){ return sum + (w.cited_by_count || 0); }, 0);
+    if(!cites) return;
+
+    // Round down to a stable figure so the number does not jitter between visits.
+    const roundDown = function(n){
+      if(n >= 1000) return Math.floor(n/100)*100;
+      if(n >= 100) return Math.floor(n/10)*10;
+      return n;
+    };
+
+    document.querySelectorAll('[data-metric="cites"]').forEach(function(el){
+      el.textContent = roundDown(cites).toLocaleString() + '+';
+      el.title = 'Indexed by OpenAlex: ' + cites.toLocaleString() + ' citations';
+    });
+    document.querySelectorAll('[data-metric="works"]').forEach(function(el){
+      el.textContent = total + '+';
+      el.title = 'Indexed by OpenAlex: ' + total + ' works';
+    });
+
+    const src = document.getElementById('metricSource');
+    if(src) src.style.display = 'block';
+  } catch(e){ /* fallbacks in the HTML remain */ }
+})();
+</script>
+
 <!-- ===== Cited By: top works citing my publications (OpenAlex, no key) ===== -->
 <script>
 (async function(){
   const grid = document.getElementById('citedbyGrid');
   const stateEl = document.getElementById('citedbyState');
   if(!grid) return;
-  const ORCID='0000-0002-7773-0621', MAILTO='alemuta@hotmail.com', API='https://api.openalex.org';
+  const ORCID='0000-0002-7773-0621', MAILTO='atassefa@alemutakele-assefa.com', API='https://api.openalex.org';
   const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const setState = (msg) => { grid.innerHTML=''; stateEl.style.display='block'; stateEl.innerHTML=msg; };
   try{
@@ -1978,6 +2253,69 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 <!-- ===== Visitor comments (giscus / GitHub Discussions) ===== -->
 <script>
+/* CONTACT FORM — Web3Forms submission with graceful mailto fallback */
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const btn = document.getElementById('cfSubmit');
+  const btnText = document.getElementById('cfSubmitText');
+  const status = document.getElementById('cfStatus');
+  const PRIMARY_EMAIL = 'atassefa@alemutakele-assefa.com';
+
+  function say(kind, html){
+    status.className = 'cf-status show ' + kind;
+    status.innerHTML = html;
+  }
+  function mailtoLink(){
+    const d = new FormData(form);
+    const body = 'Name: ' + (d.get('name')||'') + '\nEmail: ' + (d.get('email')||'')
+      + '\nOrganisation: ' + (d.get('organisation')||'—')
+      + '\nTopic: ' + (d.get('topic')||'—') + '\n\n' + (d.get('message')||'');
+    return 'mailto:' + PRIMARY_EMAIL + '?subject=' + encodeURIComponent('Website enquiry — ' + (d.get('topic')||'General'))
+      + '&body=' + encodeURIComponent(body);
+  }
+  function fallbackMsg(lead){
+    say('err', lead + ' You can send it straight from your own mail app instead — <a href="' + mailtoLink() + '">open a pre-filled email</a>, or write to <a href="mailto:' + PRIMARY_EMAIL + '">' + PRIMARY_EMAIL + '</a>.');
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;
+
+    const key = form.querySelector('[name="access_key"]').value;
+    if(!key || key.indexOf('YOUR-') === 0){
+      fallbackMsg('The form is not connected to its mail service yet.');
+      return;
+    }
+
+    btn.disabled = true;
+    btnText.textContent = 'Sending…';
+    status.className = 'cf-status';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json().catch(function(){ return {}; });
+      if(res.ok && data.success){
+        say('ok', 'Thank you — your message has been sent. It has landed at ' + PRIMARY_EMAIL + ' and I will get back to you shortly.');
+        form.reset();
+      } else {
+        fallbackMsg('Something went wrong sending your message.');
+      }
+    } catch(err){
+      fallbackMsg('Your message could not be sent — the network or the mail service was unreachable.');
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = 'Send message';
+    }
+  });
+})();
+</script>
+
+<script>
 (function(){
   // After enabling Discussions + installing the giscus app, paste the two IDs from giscus.app below.
   const GISCUS = {
@@ -1990,7 +2328,7 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   const fallback = document.getElementById('giscusFallback');
   if(!host) return;
   if(GISCUS.repoId.indexOf('PASTE')===0 || GISCUS.categoryId.indexOf('PASTE')===0){
-    if(fallback) fallback.innerHTML = 'The guestbook is being set up. In the meantime, reach me via <a href="mailto:alemuta@hotmail.com">email</a> or <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank">LinkedIn</a>.';
+    if(fallback) fallback.innerHTML = 'The guestbook is being set up. In the meantime, reach me via <a href="mailto:atassefa@alemutakele-assefa.com">email</a> or <a href="https://www.linkedin.com/in/alemu-takele-assefa-73a7b312a/" target="_blank">LinkedIn</a>.';
     return;
   }
   const s = document.createElement('script');
@@ -2044,7 +2382,7 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 const CV = {
   name: "Alemu Takele Assefa, PhD",
   title: "Senior Principal Scientist, Biostatistics",
-  contact: "Turnhout, Belgium · alemuta@hotmail.com · alemutakele-assefa.com · linkedin.com/in/alemu-takele-assefa · github.com/AlemuTA",
+  contact: "Turnhout, Belgium · atassefa@alemutakele-assefa.com · alemutakele-assefa.com · linkedin.com/in/alemu-takele-assefa · github.com/AlemuTA",
   summary: "Senior biostatistician and computational biologist who leads a team of single-cell RNA-seq experts on tumour target identification and biomarker discovery portfolios, and has founded and led two research internship programs. 6+ years of pharmaceutical-industry experience building statistical and computational tools that advance the cancer-immunotherapy drug-discovery pipeline — spanning single-cell and spatial transcriptomic target identification, immune-cell phenotyping, predictive biomarker discovery, automated high-content image analysis, and AI/LLM-assisted target prioritisation. Author and maintainer of open-source R/Bioconductor packages (voomCLR, SPsimSeq, PIMseq). PhD in Statistical Data Analysis; fluent in R, Python and SAS, with a track record of deploying Shiny applications and reproducible analytical pipelines.",
   experience: [
     { role: "Senior Principal Scientist, Biostatistics", org: "Johnson & Johnson Innovative Medicine", loc: "Beerse, Belgium", period: "Dec 2019 — Present", bullets: [
@@ -2054,7 +2392,7 @@ const CV = {
       { x: "Leading (2026) an internship benchmarking best practice for cell-label transfer between single-cell and spatial transcriptomics.", tags:["leadership","single-cell","genomics","biomarker"] },
       { x: "Integrated large language model (LLM)-based AI to support target identification for immunotherapy antibody design in oncology.", tags:["ai","drug discovery","immunotherapy","oncology"] },
       { x: "Built a database integrating pre-clinical and clinical drug-discovery data to translate in-vitro/in-vivo findings into clinical safety and efficacy predictions and support dose optimisation.", tags:["clinical","drug discovery","database","translational"] },
-      { x: "Developed the R package voomCLR for differential cell-composition analysis of single-cell experiments (scRNA-seq, flow cytometry, CyTOF).", tags:["r","single-cell","cytometry","statistics","software","genomics","differential expression"] },
+      { x: "Developed the methodological framework behind the R package voomCLR and validated it through a simulation study, enabling differential cell-composition analysis of single-cell experiments (scRNA-seq, flow cytometry, CyTOF).", tags:["r","single-cell","cytometry","statistics","software","genomics","differential expression","simulation"] },
       { x: "Developed and automated a metric to optimise bi-specific antibody design for cancer immunotherapy using single-cell RNA-seq data.", tags:["immunotherapy","single-cell","genomics","oncology","drug discovery"] },
       { x: "Automated image analysis for Colony Formation Unit (CFU) counting from clonogenic assays, and built positive-control-based QC for high-content imaging to enable large-scale compound screening.", tags:["imaging","automation","quality control","drug discovery","screening"] },
       { x: "Optimised detection of immune-cell polyfunctionality via an improved polyfunctionality strength index (PSI) from flow-cytometry data.", tags:["cytometry","immunotherapy","statistics"] },
