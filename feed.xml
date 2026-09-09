@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Alemu Takele Assefa — Reflections</title>
+    <link>https://alemutakele-assefa.com/#blog</link>
+    <description>Occasional writing on biostatistics, computational biology and drug discovery — how we measure biology, and what the data can and cannot carry.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 09 Sep 2026 02:54:37 +0000</lastBuildDate>
+    <atom:link href="https://alemutakele-assefa.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>A calendar worth rebuilding</title>
+      <link>https://alemutakele-assefa.com/#post-thirteen-month-calendar</link>
+      <guid isPermaLink="false">2026-09-03-thirteen-month-calendar</guid>
+      <pubDate>Thu, 03 Sep 2026 09:00:00 +0000</pubDate>
+      <author>atassefa@alemutakele-assefa.com (Alemu Takele Assefa)</author>
+      <description>We have modernised nearly every system that shapes daily life, and left the calendar almost untouched since the sixteenth century. Thirteen equal months would fix most of what is wrong with it — which raises the question of why we haven't.</description>
+      <category>Calendar reform</category>
+      <category>Standardisation</category>
+      <category>Systems design</category>
+      <category>Ethiopia</category>
+      <content:encoded><![CDATA[<p>We have modernised nearly every system that shapes our daily lives. Measurement went metric. Time zones were standardised. Character encoding converged on Unicode. Even the humble shipping container was redesigned around a single set of dimensions, and it reorganised world trade.</p>
+
+        <p>The calendar was left alone. The one we use is irregular, internally inconsistent, and built on compromises settled centuries ago. Months run from 28 to 31 days for no reason anyone would defend today. The same date lands on a different weekday every year. Quarters contain unequal numbers of working days, which means every quarter-on-quarter comparison carries a small artefact nobody bothers to correct for.</p>
+
+        <p>This creates avoidable complexity in scheduling, analytics, payroll, global coordination and education cycles. Most of us have simply stopped noticing it, the way you stop noticing a door that sticks.</p>
+
+        <h4>The proposal</h4>
+
+        <p>A uniform calendar would be built from one repeating unit:</p>
+
+        <ul>
+          <li><strong>Thirteen equal months.</strong> Each month is exactly four weeks — 28 days.</li>
+          <li><strong>Perfect weekly alignment.</strong> Every month begins on a Monday and ends on a Sunday. No shifting layouts, no irregular patterns, no month that starts mid-week.</li>
+          <li><strong>A logical year start.</strong> The year begins on 1 September, aligning with academic cycles, fiscal planning and seasonal transition.</li>
+          <li><strong>The leftover days.</strong> Thirteen months of 28 days is 364. A standard year has one day left over and a leap year has two. These become a universal year-end celebration weekend after the final month, belonging to no month and no week.</li>
+        </ul>
+
+        <figure class="post-figure">
+          <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: a single month as a four-by-seven grid of 28 days running Monday to Sunday. Right: the year as thirteen identical months beginning in September, followed by a year-end celebration weekend of one or two days.">
+            <title>Thirteen identical months, and one leftover weekend</title>
+            <text x="60" y="42" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#5dcaa5">EVERY MONTH, IDENTICAL</text>
+            <text x="380" y="42" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#5dcaa5">THE YEAR</text>
+
+            <g font-family="Inter,sans-serif" font-size="10" fill="#9babb8" text-anchor="middle">
+              <text x="77" y="76">M</text><text x="111" y="76">T</text><text x="145" y="76">W</text>
+              <text x="179" y="76">T</text><text x="213" y="76">F</text>
+              <text x="247" y="76" fill="#c9a84c">S</text><text x="281" y="76" fill="#c9a84c">S</text>
+            </g>
+            <g stroke="#1a3a5c" stroke-width="1" fill="rgba(29,158,117,0.05)">
+              <rect x="60" y="86" width="238" height="120" rx="4"/>
+            </g>
+            <g font-family="Inter,sans-serif" font-size="11" fill="#f0ece4" text-anchor="middle">
+              <text x="77" y="106">1</text><text x="111" y="106">2</text><text x="145" y="106">3</text><text x="179" y="106">4</text><text x="213" y="106">5</text><text x="247" y="106" fill="#9babb8">6</text><text x="281" y="106" fill="#9babb8">7</text>
+              <text x="77" y="136">8</text><text x="111" y="136">9</text><text x="145" y="136">10</text><text x="179" y="136">11</text><text x="213" y="136">12</text><text x="247" y="136" fill="#9babb8">13</text><text x="281" y="136" fill="#9babb8">14</text>
+              <text x="77" y="166">15</text><text x="111" y="166">16</text><text x="145" y="166">17</text><text x="179" y="166">18</text><text x="213" y="166">19</text><text x="247" y="166" fill="#9babb8">20</text><text x="281" y="166" fill="#9babb8">21</text>
+              <text x="77" y="196">22</text><text x="111" y="196">23</text><text x="145" y="196">24</text><text x="179" y="196">25</text><text x="213" y="196">26</text><text x="247" y="196" fill="#9babb8">27</text><text x="281" y="196" fill="#9babb8">28</text>
+            </g>
+            <text x="179" y="232" font-family="Inter,sans-serif" font-size="10.5" fill="#9babb8" text-anchor="middle">Four weeks. Monday to Sunday. Always.</text>
+
+            <g font-family="Inter,sans-serif">
+              <g fill="rgba(29,158,117,0.07)" stroke="#1d9e75" stroke-opacity="0.4" stroke-width="1">
+                <rect x="380" y="60" width="90" height="46" rx="4"/><rect x="478" y="60" width="90" height="46" rx="4"/><rect x="576" y="60" width="90" height="46" rx="4"/><rect x="674" y="60" width="90" height="46" rx="4"/><rect x="772" y="60" width="90" height="46" rx="4"/>
+                <rect x="380" y="114" width="90" height="46" rx="4"/><rect x="478" y="114" width="90" height="46" rx="4"/><rect x="576" y="114" width="90" height="46" rx="4"/><rect x="674" y="114" width="90" height="46" rx="4"/><rect x="772" y="114" width="90" height="46" rx="4"/>
+                <rect x="380" y="168" width="90" height="46" rx="4"/><rect x="478" y="168" width="90" height="46" rx="4"/><rect x="576" y="168" width="90" height="46" rx="4"/>
+              </g>
+              <rect x="674" y="168" width="188" height="46" rx="4" fill="rgba(201,168,76,0.12)" stroke="#c9a84c" stroke-opacity="0.6" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <g font-size="12" fill="#f0ece4" text-anchor="middle">
+                <text x="425" y="82">Sep</text><text x="523" y="82">Oct</text><text x="621" y="82">Nov</text><text x="719" y="82">Dec</text><text x="817" y="82">Jan</text>
+                <text x="425" y="136">Feb</text><text x="523" y="136">Mar</text><text x="621" y="136">Apr</text><text x="719" y="136">May</text><text x="817" y="136">Jun</text>
+                <text x="425" y="190">Jul</text><text x="523" y="190">Aug</text><text x="621" y="190" fill="#9babb8">13th</text>
+              </g>
+              <g font-size="9" fill="#5dcaa5" text-anchor="middle" opacity="0.75">
+                <text x="425" y="96">28</text><text x="523" y="96">28</text><text x="621" y="96">28</text><text x="719" y="96">28</text><text x="817" y="96">28</text>
+                <text x="425" y="150">28</text><text x="523" y="150">28</text><text x="621" y="150">28</text><text x="719" y="150">28</text><text x="817" y="150">28</text>
+                <text x="425" y="204">28</text><text x="523" y="204">28</text><text x="621" y="204">28</text>
+              </g>
+              <text x="768" y="188" font-size="11.5" fill="#e4c97e" text-anchor="middle">Year-end weekend</text>
+              <text x="768" y="203" font-size="9.5" fill="#c9a84c" text-anchor="middle" opacity="0.85">1 day · 2 in a leap year</text>
+            </g>
+            <text x="621" y="248" font-family="Inter,sans-serif" font-size="10.5" fill="#9babb8" text-anchor="middle">13 × 28 = 364, and the remainder becomes a holiday instead of a rounding error.</text>
+          </svg>
+          <figcaption>The whole system is one month repeated thirteen times, plus a weekend that belongs to nobody.</figcaption>
+        </figure>
+
+        <h4>Why this is more than tidiness</h4>
+
+        <p>Every month becomes directly comparable to every other. Monthly sales, monthly headcount, monthly clinical enrolment — all currently need adjusting for month length and for how many weekends fell inside the window. Under equal months that correction disappears, because the confounder does.</p>
+
+        <p>Payroll stops drifting. Rotas repeat exactly. Any date maps to a weekday by arithmetic rather than lookup: the 15th is a Monday, in every month, forever. Anyone who has written date-handling code knows how much complexity exists purely to absorb the irregularity of the Gregorian calendar.</p>
+
+        <p>The idea is partly inspired by the <strong>Ethiopian calendar</strong>, which already demonstrates that an alternative structure can be stable, intuitive and deeply functional. It runs twelve months of thirty days followed by Pagumē, a short thirteenth month of five days — six in a leap year. The arithmetic differs from what I am proposing, but the principle is the same and it has been in continuous everyday use for centuries. A thirteenth month is not an exotic idea. It is a Tuesday in Addis Ababa.</p>
+
+        <h4>This has been tried</h4>
+
+        <p>Honesty requires noting that this is not a new thought, and that it has already lost once. Moses Cotsworth proposed an International Fixed Calendar of thirteen 28-day months in 1902. In 1923 the League of Nations judged it the best of 130 calendar proposals it had received. George Eastman adopted it at Kodak in 1928, and the company ran its internal accounting on thirteen months until 1989 — six decades of a large multinational demonstrating that the thing works in practice.</p>
+
+        <p>The League of Nations nonetheless declined to approve it in 1937, and the reform league folded.</p>
+
+        <h4>Where it gets hard</h4>
+
+        <p>Three objections deserve to be taken seriously rather than waved past.</p>
+
+        <p><strong>The blank day breaks the week.</strong> This is the one that actually killed the earlier proposal. A day belonging to no week means the seven-day cycle is interrupted once a year, and for anyone observing a seventh-day Sabbath the day of observance then walks through the week. Rabbi Joseph Hertz made this argument against the International Fixed Calendar and it proved decisive. It is not a technicality — it asks a religious community to accept a discontinuity in a cycle that has run unbroken for millennia. Any serious proposal has to answer it, and I do not think "the arithmetic is nicer" is an answer.</p>
+
+        <p><strong>Thirteen is prime.</strong> This cuts directly against the fiscal argument. Twelve months divide cleanly into halves, thirds and quarters; thirteen divides into nothing. Quarterly reporting — which is how most of the financial world is actually structured — would have to become something else, perhaps four periods of thirteen weeks, which is clean in weeks but no longer aligns to months. Equal months and quarterly reporting cannot both be neat. One has to give.</p>
+
+        <p><strong>Transition cost.</strong> Every system that stores a date, every contract, every historical series. The metric system took two centuries and is still incomplete in places. This would be harder.</p>
+
+        <h4>Still worth asking</h4>
+
+        <p>I am not claiming the objections are small. The Sabbath problem in particular may be genuinely unsolvable rather than merely difficult, and a proposal that ignores it deserves to fail again.</p>
+
+        <p>But the fact that we inherited something does not make it good, and "we have always done it this way" is the weakest argument there is for a system built on Roman politics and a sixteenth-century papal correction. We have coordinated on harder things. We rebuilt the whole world's clocks around railway timetables in about fifty years.</p>
+
+        <p>So the question I keep coming back to is not whether we <em>will</em> reform the calendar. Plainly we will not, at least not soon. It is a narrower and more interesting one: if you were designing the thing today, knowing what a year has to do, what would you actually build?</p>]]></content:encoded>
+    </item>
+    <item>
+      <title>The coarsest tool that still answers the question</title>
+      <link>https://alemutakele-assefa.com/#post-coarsest-tool</link>
+      <guid isPermaLink="false">2026-08-09-coarsest-tool</guid>
+      <pubDate>Sun, 09 Aug 2026 09:00:00 +0000</pubDate>
+      <author>atassefa@alemutakele-assefa.com (Alemu Takele Assefa)</author>
+      <description>Thirty years of transcriptomics is usually told as a story of steadily better instruments. It is more honest to tell it as a sequence of trades — each generation bought resolution and paid for it somewhere else.</description>
+      <category>Transcriptomics</category>
+      <category>Experimental design</category>
+      <category>Single-cell</category>
+      <category>Spatial</category>
+      <content:encoded><![CDATA[<p>In 1995 we could only measure genes we had already decided to look for — the targeted approach. Today we can measure several molecular layers inside a single cell and know exactly where that cell was sitting in the tissue. That is a remarkable thirty years by any standard.</p>
+
+        <p>But the story is not simply that everything got better. Each generation of technology bought resolution and paid for it somewhere else, and the bill came due in different currencies — cost, sparsity, tissue destruction, analytical difficulty. Knowing which bill you are about to pay is most of the skill in designing an experiment.</p>
+
+        <figure class="post-figure">
+          <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five generations of transcriptomics technology, each showing what it gained and what it cost: microarrays, bulk RNA-seq, single-cell RNA-seq, spatial transcriptomics, and single-cell multi-omics.">
+            <title>Five generations of transcriptomics, and what each one traded</title>
+            <defs>
+              <linearGradient id="arcLine" x1="60" y1="150" x2="840" y2="150" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#1d9e75"/><stop offset="1" stop-color="#c9a84c"/>
+              </linearGradient>
+            </defs>
+            <text x="60" y="26" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#5dcaa5">GAINED</text>
+            <text x="60" y="288" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#e4c97e">PAID FOR IT IN</text>
+            <line x1="60" y1="150" x2="845" y2="150" stroke="url(#arcLine)" stroke-width="2" opacity="0.55"/>
+
+            <g font-family="Inter,sans-serif">
+              <circle cx="105" cy="150" r="7" fill="#0d1b2a" stroke="#1d9e75" stroke-width="2.5"/>
+              <text x="105" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#f0ece4">Microarrays</text>
+              <text x="105" y="192" text-anchor="middle" font-size="11" fill="#9babb8">1995</text>
+              <text x="105" y="112" text-anchor="middle" font-size="11" fill="#5dcaa5">parallel measurement</text>
+              <text x="105" y="98" text-anchor="middle" font-size="11" fill="#5dcaa5">Cheap, standardised</text>
+              <text x="105" y="228" text-anchor="middle" font-size="11" fill="#e4c97e">Blind to anything</text>
+              <text x="105" y="242" text-anchor="middle" font-size="11" fill="#e4c97e">not on the chip</text>
+
+              <circle cx="290" cy="150" r="7" fill="#0d1b2a" stroke="#1d9e75" stroke-width="2.5"/>
+              <text x="290" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#f0ece4">Bulk RNA-seq</text>
+              <text x="290" y="192" text-anchor="middle" font-size="11" fill="#9babb8">2008</text>
+              <text x="290" y="112" text-anchor="middle" font-size="11" fill="#5dcaa5">transcriptome</text>
+              <text x="290" y="98" text-anchor="middle" font-size="11" fill="#5dcaa5">Sees the whole</text>
+              <text x="290" y="228" text-anchor="middle" font-size="11" fill="#e4c97e">Averages every cell</text>
+              <text x="290" y="242" text-anchor="middle" font-size="11" fill="#e4c97e">into one number</text>
+
+              <circle cx="475" cy="150" r="7" fill="#0d1b2a" stroke="#1d9e75" stroke-width="2.5"/>
+              <text x="475" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#f0ece4">Single-cell RNA-seq</text>
+              <text x="475" y="192" text-anchor="middle" font-size="11" fill="#9babb8">2013</text>
+              <text x="475" y="112" text-anchor="middle" font-size="11" fill="#5dcaa5">nobody knew were there</text>
+              <text x="475" y="98" text-anchor="middle" font-size="11" fill="#5dcaa5">Rare populations</text>
+              <text x="475" y="228" text-anchor="middle" font-size="11" fill="#e4c97e">Sparse, noisy data;</text>
+              <text x="475" y="242" text-anchor="middle" font-size="11" fill="#e4c97e">tissue destroyed</text>
+
+              <circle cx="660" cy="150" r="7" fill="#0d1b2a" stroke="#c9a84c" stroke-width="2.5"/>
+              <text x="660" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#f0ece4">Spatial</text>
+              <text x="660" y="192" text-anchor="middle" font-size="11" fill="#9babb8">2016</text>
+              <text x="660" y="112" text-anchor="middle" font-size="11" fill="#5dcaa5">next to which</text>
+              <text x="660" y="98" text-anchor="middle" font-size="11" fill="#5dcaa5">Which cell sits</text>
+              <text x="660" y="228" text-anchor="middle" font-size="11" fill="#e4c97e">Fine detail or broad</text>
+              <text x="660" y="242" text-anchor="middle" font-size="11" fill="#e4c97e">coverage — pick one</text>
+
+              <circle cx="840" cy="150" r="7" fill="#c9a84c" stroke="#e4c97e" stroke-width="2.5"/>
+              <text x="840" y="176" text-anchor="end" font-size="13" font-weight="600" fill="#f0ece4">Multi-omics</text>
+              <text x="840" y="192" text-anchor="end" font-size="11" fill="#9babb8">2019</text>
+              <text x="840" y="112" text-anchor="end" font-size="11" fill="#5dcaa5">in the same cell</text>
+              <text x="840" y="98" text-anchor="end" font-size="11" fill="#5dcaa5">Regulation and outcome</text>
+              <text x="840" y="228" text-anchor="end" font-size="11" fill="#e4c97e">Expensive, sparse,</text>
+              <text x="840" y="242" text-anchor="end" font-size="11" fill="#e4c97e">hard to analyse well</text>
+            </g>
+          </svg>
+          <figcaption>Each step up in resolution was paid for in a different currency. None of these trades has been retired by the next one.</figcaption>
+        </figure>
+
+        <h4>The trades, in order</h4>
+
+        <p><strong>Microarrays</strong> were cheap and standardised, and they were blind to anything not already printed on the chip. You could only find what you had thought to ask about.</p>
+
+        <p><strong>Bulk RNA-seq</strong> removed that blindness — and then averaged every cell in the sample into a single number. A smoothie, when sometimes what you need is the fruit salad.</p>
+
+        <p><strong>Single-cell RNA-seq</strong> gave us the individual cells and revealed rare populations nobody knew were there. It also gave us sparse, noisy data, and it destroys the tissue in order to read it.</p>
+
+        <p><strong>Spatial transcriptomics</strong> kept the tissue intact and showed us which cells sit next to which, which turns out to matter enormously for anything immunological. It forces a trade between fine spatial detail and broad gene coverage.</p>
+
+        <p><strong>Single-cell multi-omics</strong> links regulation to outcome inside the same cell. It is expensive, sparse, and genuinely hard to analyse well.</p>
+
+        <h4>What I keep coming back to</h4>
+
+        <p>Working across these platforms in drug discovery, the pattern that recurs is this: the newest technology is not automatically the right one. A well-powered bulk experiment routinely beats an underpowered single-cell one. The single-cell experiment will produce a more impressive figure. It will not necessarily produce a more reliable answer.</p>
+
+        <blockquote>
+          <p>Underpowered resolution you cannot afford to replicate does not support science. It is an anecdote.</p>
+        </blockquote>
+
+        <p>This is not an argument against new methods — I spend most of my working life on the newest end of that timeline. It is an argument against choosing a platform before you have written down the question. The interesting question is rarely <em>what is the most advanced tool available?</em> It is <em>what is the coarsest tool that still answers my question?</em> — because that is the one you can afford to run enough times to believe the result.</p>
+
+        <h4>What comes next</h4>
+
+        <p>Every one of these five would have sounded like science fiction to the generation before it. Reading one cell at a time was fantasy in 2005. Keeping the tissue intact while doing it was fantasy in 2012.</p>
+
+        <p>So what is the sixth? Watching the same cell over time instead of killing it to read it? Every molecular layer at once, at full depth, for the price of a bulk experiment? Reading a living tumour without a biopsy at all?</p>
+
+        <p>I would be glad to hear what you would build. Every tool on that timeline started as somebody's unreasonable wish.</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
